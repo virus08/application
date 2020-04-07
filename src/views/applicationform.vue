@@ -6,9 +6,8 @@
     </v-stepper-step>
 
     <v-stepper-content step="1">
-      <neung/>
-      <v-btn color="primary" @click="e6 = 2">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
+      <neung :thisid="thisid" />
+      <v-divider />
     </v-stepper-content>
 
     <v-stepper-step :complete="e6 > 2" step="2">Education background
@@ -16,6 +15,7 @@
     </v-stepper-step>
     <v-stepper-content step="2">
       <iaeo/>
+      <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
       <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
     </v-stepper-content>
@@ -25,6 +25,7 @@
     </v-stepper-step>
     <v-stepper-content step="3">
       <ipat1/>
+      <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
       <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
     </v-stepper-content>
@@ -34,6 +35,7 @@
     </v-stepper-step>
     <v-stepper-content step="4">
       <ipat2/>
+      <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
       <v-btn color="primary" @click="e6 = 1">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
     </v-stepper-content>
@@ -53,8 +55,23 @@ export default {
   },
   data() {
     return {
-      e6: 1
+      e6: 1,
+      thisid: null
     };
+  },
+  methods: {
+    async init() {
+      let urldata = process.env.VUE_APP_DATA
+      let res = await axios({
+        method: "post",
+        url: urldata,
+        data:{}
+      });
+      this.thisid=res.data.id
+    }
+  },
+  mounted() {
+    this.init();
   }
 };
 </script>

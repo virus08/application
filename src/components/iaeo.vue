@@ -2,7 +2,10 @@
   <v-card>
     <v-container fluid>
       <v-row>
-        <v-col cols="5">
+      <v-subheader>
+                ระดับการศึกษา/ Level
+              </v-subheader>
+        <v-col cols="4">
           <v-autocomplete
             v-model="a"
             :items="t"
@@ -16,7 +19,11 @@
             hint="ระดับการศึกษา/ Level"
           >></v-autocomplete>
         </v-col>
-        <v-col cols="5">
+        <v-subheader>
+                ชื่อสถานศึกษาและที่ตั้ง
+                <br />Name of Institution/Location
+              </v-subheader>
+        <v-col cols="4">
           <v-text-field
             label="ชื่อสถานศึกษาและที่ตั้ง/ Name of Institution/Location"
             hint="ชื่อสถานศึกษาและที่ตั้ง/ Name of Institution/Location"
@@ -26,9 +33,9 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-chip class="ma-2" large>ปีที่ศึกษา/Period</v-chip>
-      </v-row>
-      <v-row>
+        <v-subheader>
+                ปีที่ศึกษา/Period
+              </v-subheader>
         <v-col cols="12" sm="3">
           <v-text-field v-model.number="year" class="px-4" label="จาก/ From" type="number"></v-text-field>
         </v-col>
@@ -38,10 +45,18 @@
       </v-row>
 
       <v-row>
-        <v-col cols="5">
+      <v-subheader>
+                คะแนนเฉลี่ย
+                <br />G.P.A
+              </v-subheader>
+        <v-col cols="2">
           <v-text-field label="คะแนนเฉลี่ย/ G.P.A" hint="คะแนนเฉลี่ย/ G.P.A" dense outlined></v-text-field>
         </v-col>
-        <v-col cols="5">
+        <v-subheader>
+                วุฒิการศึกษา
+                <br />Degree/Cert.
+              </v-subheader>
+        <v-col cols="2">
           <v-text-field
             label="วุฒิการศึกษา/ Degree/Cert."
             hint="วุฒิการศึกษา/ Degree/Cert."
@@ -49,10 +64,18 @@
             outlined
           ></v-text-field>
         </v-col>
-        <v-col cols="5">
+        <v-subheader>
+                วิชาเอก
+                <br />Major
+              </v-subheader>
+        <v-col cols="2">
           <v-text-field label="วิชาเอก/ Major" hint="วิชาเอก/ Major" dense outlined></v-text-field>
         </v-col>
-        <v-col cols="5">
+        <v-subheader>
+                คณะ
+                <br />Dept.
+              </v-subheader>
+        <v-col cols="2">
           <v-text-field label="คณะ/ Dept." hint="คณะ/ Dept." dense outlined></v-text-field>
         </v-col>
       </v-row>
@@ -62,7 +85,11 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="5">
+      <v-subheader>
+                ศึกษาต่ออยู่ที่
+                <br />Institute
+              </v-subheader>
+        <v-col cols="4">
           <v-text-field
             label="ศึกษาต่ออยู่ที่/ Institute"
             hint="ศึกษาต่ออยู่ที่/ Institute"
@@ -70,7 +97,11 @@
             outlined
           ></v-text-field>
         </v-col>
-        <v-col cols="3" sm="5">
+        <v-subheader>
+                ปีที่จบ
+                <br />Year to Graduate
+              </v-subheader>
+        <v-col cols="3" sm="4">
           <v-text-field
             v-model.number="ye"
             class="px-2"
@@ -78,7 +109,13 @@
             type="number"
           ></v-text-field>
         </v-col>
-        <v-col cols="5">
+      </v-row>
+      <v-row>
+        <v-subheader>
+                ระดับการศึกษา
+                <br />Level
+              </v-subheader>
+        <v-col cols="4">
           <v-autocomplete
             v-model="v"
             :items="i"
@@ -92,7 +129,11 @@
             multiple
           ></v-autocomplete>
         </v-col>
-        <v-col cols="5">
+        <v-subheader>
+                วิชาเอก/คณะ
+                <br />Major/Dept.
+              </v-subheader>
+        <v-col cols="4">
           <v-text-field
             label="วิชาเอก/คณะ/ Major/Dept."
             hint="วิชาเอก/คณะ/ Major/Dept."
@@ -118,7 +159,7 @@
         </v-container>
       </v-row>
       <v-row>
-        <v-chip class="ma-5">ด้านยานพาหนะ / Vehicle</v-chip>
+        <v-chip class="ma-2">ด้านยานพาหนะ / Vehicle</v-chip>
       </v-row>
       <v-row>
         <v-container fluid>
@@ -130,10 +171,12 @@
         </v-container>
       </v-row>
       <v-row>
-        <v-chip class="ma-5">ด้านคอมพิวเตอร์/ Computer Skill</v-chip>
+        <v-chip class="ma-2">ความสามารถพิเศษ/ Special Ability</v-chip>
       </v-row>
-
       <v-row>
+       <v-subheader>
+                ด้านคอมพิวเตอร์/ Computer Skill
+              </v-subheader>
         <v-col cols="4" sm="6" md="2">
           <v-text-field label="Software " placeholder="Software " outlined dense></v-text-field>
         </v-col>
@@ -148,15 +191,12 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-chip class="ma-2" large>ความสามารถพิเศษ/ Special Ability</v-chip>
-      </v-row>
-      <v-row>
         <v-chip class="ma-2">ด้านภาษาต่างประเทศ/ Proficiency in language</v-chip>
       </v-row>
       <v-row>
-        <v-chip class="ma-5">อังกฤษ / English</v-chip>
-      </v-row>
-      <v-row>
+               <v-subheader>
+                อังกฤษ / English
+              </v-subheader>
         <v-col cols="2">
           <v-autocomplete
             v-model="v"
@@ -211,14 +251,15 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-chip class="ma-5">อื่นๆ / Others</v-chip>
+        <v-chip class="ma-2">อื่นๆ / Others</v-chip>
       </v-row>
       <v-row>
-        <v-col cols="3">
+       <v-subheader>
+                ภาษา/ Language
+              </v-subheader>
+        <v-col cols="1">
           <v-text-field label="ภาษา/ Language" hint="ภาษา/ Language" dense outlined></v-text-field>
         </v-col>
-      </v-row>
-      <v-row>
         <v-col cols="2">
           <v-autocomplete
             v-model="k"
@@ -345,4 +386,3 @@ export default {
   })
 };
 </script>
-
