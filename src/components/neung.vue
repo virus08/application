@@ -2,7 +2,29 @@
   <v-card>
     <v-container fluid>
       <v-form ref="form" v-model="valid">
+        <v-row>
+          <v-col cols="10">
+
+          </v-col>
+          <v-col cols="2">
+            <picture-input
+              ref="pictureInput"
+              width="300"
+              height="300"
+              margin="16"
+              accept="image/jpeg, image/png"
+              size="10"
+              button-class="btn"
+              :custom-strings="{
+                upload: '<h1>Bummer!</h1>',
+                drag: 'Drag a jpeg or png'
+              }"
+              @change="onChange"
+            ></picture-input>
+          </v-col>
+        </v-row>
       <v-row align="center">
+ 
         <v-col cols="2" md="1.5">
           <v-select  v-model="datain.nt"
               :rules="rules.nt" :items="['นาย','นาง.','นางสาว']" label="คำนำหน้า(TH)" dense solo></v-select>
@@ -585,8 +607,12 @@
   </v-card>
 </template>
 <script>
+import PictureInput from "vue-picture-input";
 export default {
   props: ["thisid"],
+  components: {
+    PictureInput
+  },
   data() {
     return {
       data: null,
@@ -605,6 +631,7 @@ export default {
         ]
       },
       datain: {
+        img: null,
         nt: "",
         namet: "",
         surnamet: "",
@@ -637,6 +664,15 @@ export default {
   },
   methods: {
     async init() {},
+    onChange(image) {
+      console.log("New picture selected!");
+      if (image) {
+        console.log("Picture loaded.");
+        this.datain.img = image;
+      } else {
+        console.log("FileReader API not supported: use the <form>, Luke!");
+      }
+    },
     async save() {
       let urldata = process.env.VUE_APP_DATA;
 

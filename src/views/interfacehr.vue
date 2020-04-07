@@ -67,6 +67,7 @@ export default {
         text: "Empolyee ID",
         value: "id"
       },
+       { text: "calories",  value: "calories" },
       { text: "Name", align: "start", value: "Name" },
 
       { text: "Position", value: "p_level" },

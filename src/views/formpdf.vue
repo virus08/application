@@ -6,8 +6,8 @@
         <h2>VST ECS (Thailand) Co., Ltd.</h2>
         <br />
         <p style="font-size:8pt;">
-          275 ซอยลาดพร้าว 101 (วัดบึงทองหลาง) แขวงคลองเจ้าคุณสิงห์ เขตวังทองหลาง กรุงเทพฯ 10310
-          <br />275 Soi Lat Phrao 101 (Wat Bung Thonglang), Khlong Chao Khun Sing, Wang Thonglang, Bangkok 10310, Thailand
+         275 ซอยลำดพร้ำว 101 (วัดบึงทองหลำง) แขวงคลองเจ้ำคุณสิงห์ เขตวังทองหลำง กรุงเทพฯ 10310. โทร 0-2032-9999, แฟกซ์ 0-2032-9989, recruit@vstecs.co.th, www.vstecs.co.th
+          <br />275 Soi Lat Phrao 101 (Wat Bung Thonglang), Khlong Chao Khun Sing, Wang Thonglang, Bangkok 10310, Thailand. Tel.(66) 2032-9999, Fax.(66) 2032 9989
           <br />โทร.0-2032-9999 แฟกซ์ 0-2032-9989
         </p>
       </div>
@@ -46,7 +46,7 @@
               </v-row>
             </td>
             <td class="Type1" align="center" style="width:3.5cm;">
-             
+             <img alt="" :src="data.img" height="148" width="120" />
             </td>
           </tr>
         </table>
