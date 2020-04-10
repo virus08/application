@@ -422,13 +422,23 @@
                 วุฒิการศึกษา
                 <input class="txt" type="text" style="width:7cm;" value />
                 คะแนนเฉลี่ย
-                <input class="txt" type="text" style="width:2.5cm;" value />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2.5cm;"
+                  value
+                />
               </p>
               <p>
                 คณะ/ สาขา
                 <input class="txt" type="text" style="width:8cm;" value />
                 ปีที่ศึกษา
-                <input class="txt" type="text" style="width:2cm;" value="-" />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2cm;"
+                  value="-"
+                />
               </p>
             </td>
           </tr>
@@ -444,13 +454,23 @@
                 วุฒิการศึกษา
                 <input class="txt" type="text" style="width:7cm;" value />
                 คะแนนเฉลี่ย
-                <input class="txt" type="text" style="width:2.5cm;" value />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2.5cm;"
+                  value
+                />
               </p>
               <p>
                 คณะ/ สาขา
                 <input class="txt" type="text" style="width:8cm;" value />
                 ปีที่ศึกษา
-                <input class="txt" type="text" style="width:2cm;" value="-" />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2cm;"
+                  value="-"
+                />
               </p>
             </td>
           </tr>
@@ -466,13 +486,23 @@
                 วุฒิการศึกษา
                 <input class="txt" type="text" style="width:7cm;" value />
                 คะแนนเฉลี่ย
-                <input class="txt" type="text" style="width:2.5cm;" value />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2.5cm;"
+                  value
+                />
               </p>
               <p>
                 คณะ/ สาขา
                 <input class="txt" type="text" style="width:8cm;" value />
                 ปีที่ศึกษา
-                <input class="txt" type="text" style="width:2cm;" value="-" />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2cm;"
+                  value="-"
+                />
               </p>
             </td>
           </tr>
@@ -488,13 +518,23 @@
                 วุฒิการศึกษา
                 <input class="txt" type="text" style="width:7cm;" value />
                 คะแนนเฉลี่ย
-                <input class="txt" type="text" style="width:2.5cm;" value />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2.5cm;"
+                  value
+                />
               </p>
               <p>
                 คณะ/ สาขา
                 <input class="txt" type="text" style="width:8cm;" value />
                 ปีที่ศึกษา
-                <input class="txt" type="text" style="width:2cm;" value="-" />
+                <input
+                  class="txt"
+                  type="text"
+                  style="width:2cm;"
+                  value="-"
+                />
               </p>
             </td>
           </tr>
@@ -504,7 +544,12 @@
           <tr>
             <td>
               ปัจจุบันศึกษาต่อที่/ Present study at
-              <input class="txt" type="text" style="width:9.3cm;" value />
+              <input
+                class="txt"
+                type="text"
+                style="width:9.3cm;"
+                value
+              />
               ปีที่จบ
               <input class="txt" type="text" style="width:2cm;" value />
               <br />วุฒิการศึกษา
@@ -1058,7 +1103,7 @@
               <br />Can we contact your past employer?
             </td>
             <td>
-              <input class="txt" type="text" style="width:2cm;" value />    
+              <input class="txt" type="text" style="width:2cm;" value />
             </td>
             <td>
               ระบุ/ Explain :
@@ -1131,15 +1176,13 @@
           </tr>
         </table>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: ["data"]   
+  props: ["data"]
 };
 </script>
 <style scoped>

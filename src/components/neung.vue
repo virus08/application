@@ -4,28 +4,63 @@
       <v-form ref="form" v-model="valid">
         <v-row>
           <v-col cols="10">
-            <v-col cols="12" lg="6">
-        <v-menu
-          v-model="menu1"
-          :close-on-content-click="false"
-          max-width="290"
-        >
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              :value="computedDateFormattedMomentjs"
-              clearable
-              label="วันที่ / date"
-              readonly
-              v-on="on"
-              @click:clear="date = null"
-            ></v-text-field>
-          </template>
-          <v-date-picker
-            v-model="date"
-            @change="menu1 = false"
-          ></v-date-picker>
-        </v-menu>
-      </v-col>
+            <v-row>
+              <v-col cols="12" sm="6" md="4">
+                <v-menu
+                  ref="menu"
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :return-value.sync="date"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="date"
+                      label="Picker in menu"
+                      prepend-icon="mdi-calendar-multiple"
+                      readonly
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker v-model="date" no-title scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
+                    <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+                  </v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  prepend-icon="mdi-account-location"
+                  v-model="datain.position"
+                  :rules="rules.position"
+                  label="ตำแหน่ง /Position"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  prepend-icon="mdi-calendar-question"
+                  v-model="datain.stratingdate"
+                  :rules="rules.stratingdate"
+                  label="วันเริ่มงาน /Strating Date"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  prepend-icon="mdi-message-text-outline"
+                  v-model="datain.news"
+                  :rules="rules.news"
+                  label="รับทราบข่าวสารจาก"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
           </v-col>
           <v-col cols="2">
             <picture-input
@@ -49,7 +84,7 @@
             <v-select
               v-model="datain.nt"
               :rules="rules.nt"
-              :items="['นาย','นาง.','นางสาว']"
+              :items="['นาย','นาง.','นางสาว','บาทหลวง','หม่อมหลวง','หม่อมราชวงศ์','หม่อมเจ้า','ศาสตราจารย์เกียรติคุณ','ศาสตราจารย์','ผู้ช่วยศาสตราจารย์','รองศาสตราจารย์']"
               label="คำนำหน้า(TH)"
               dense
               solo
@@ -91,7 +126,7 @@
             <v-select
               v-model="datain.ne"
               :rules="rules.ne"
-              :items="['Mr.','Mrs.','Miss']"
+              :items="['Mr.','Mrs.','Miss','Rev.','Mom Luang (M.L.)','Mom Rajawong (M.R.)','Mom Chao (M.C.)','Emeritus Professor','Professor','Assistant Professor','	Associate Professor']"
               label="คำนำหน้า(EN)"
               dense
               solo
@@ -129,19 +164,36 @@
           </v-col>
         </v-row>
         <v-row>
+          <!-- ยังใช้งานไม่ได้ date brihtday -->
           <v-subheader>
             วันเกิด
             <br />Date of brith
           </v-subheader>
-          <v-col cols="0" md="2">
-            <v-text-field
-              v-model="datain.dofb"
-              :rules="rules.dofb"
-              label="DD/MM/YYYY"
-              hint="DD/MM/YYYY"
-              dense
-              outlined
-            ></v-text-field>
+          <v-col cols="4" sm="2" md="2">
+            <v-dialog
+              ref="dialog"
+              v-model="modal3"
+              :return-value.sync="date"
+              persistent
+              width="290px"
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field
+                  v-model="date3"
+                  label="ระบุวัน/เดือน/ปี เกิด"
+                  prepend-icon="mdi-calendar-multiple"
+                  readonly
+                  v-on="on"
+                  dense
+                  outlined
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="date3" scrollable>
+                <v-spacer></v-spacer>
+                <v-btn text color="primary" @click="modal3 = false">Cancel</v-btn>
+                <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+              </v-date-picker>
+            </v-dialog>
           </v-col>
           <v-subheader>
             เพศ
@@ -331,14 +383,14 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            เขต/อำเภอ
+            เขต/อาเภอ
             <br />county
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.pr_aumphur"
               :rules="rules.pr_aumphur"
-              label="เขต/อำเภอ"
+              label="เขต/อาเภอ"
               hint="county"
               dense
               outlined
@@ -380,7 +432,7 @@
             <v-text-field
               v-model="datain.pr_postaicode"
               :rules="rules.pr_postaicode"
-              label="เขต/อำเภอ"
+              label="เขต/อาเภอ"
               hint="Postal code"
               dense
               outlined
@@ -389,7 +441,7 @@
         </v-row>
         <v-row>
           <v-col cols="3" md="3">
-            <v-radio-group v-model="type" row>
+            <v-radio-group v-model="datain.house_or" :rules="rules.house_or" row>
               <v-radio label="บ้านตนเอง/Own house " dense outlined></v-radio>
               <v-radio label="ห้องเช่า/Rented room" dense outlined></v-radio>
             </v-radio-group>
@@ -401,7 +453,7 @@
             <br />โทรศัพท์บ้าน
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.nt" :rules="rules.nt" label="02 .." dense outlined></v-text-field>
+            <v-text-field v-model="datain.tel" :rules="rules.tel" label="02 .." dense outlined></v-text-field>
           </v-col>
           <v-subheader>
             Mobile
@@ -436,19 +488,26 @@
           <v-col cols="2" md="2">
             <v-text-field v-model="datain.facebook" :rules="rules.facebook" label dense outlined></v-text-field>
           </v-col>
+          <v-subheader>
+            ID Line
+            <br />
+          </v-subheader>
+          <v-col cols="2" md="2">
+            <v-text-field v-model="datain.line" :rules="rules.line" label dense outlined></v-text-field>
+          </v-col>
         </v-row>
 
         <v-chip class="ma-2">ที่อยู่ตามทะเบียนบ้าน/ Permanent address</v-chip>
         <v-row>
           <v-subheader>
-            บ้านเลขที่
+            บ้านเลขที่-หมู่ที่
             <br />House number
           </v-subheader>
           <v-col cols="1" md="1">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
-              label="บ้านเลขที่"
+              v-model="datain.pr_add2"
+              :rules="rules.pr_add2"
+              label="บ้านเลขที่ / หมู่"
               hint="House number"
               dense
               outlined
@@ -460,8 +519,8 @@
           </v-subheader>
           <v-col cols="3" md="3">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
+              v-model="datain.pr_add2"
+              :rules="rules.pr_add2"
               label="หมู่บ้าน/อาคาร"
               hint="Village/building"
               dense
@@ -474,8 +533,8 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
+              v-model="datain.pr_soi2"
+              :rules="rules.pr_soi2"
               label="ซอย"
               hint="Alley"
               dense
@@ -488,8 +547,8 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
+              v-model="datain.pr_street2"
+              :rules="rules.pr_street2"
               label="ถนน"
               hint="Street"
               dense
@@ -502,8 +561,8 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
+              v-model="datain.pr_district2"
+              :rules="rules.pr_district2"
               label="แขวง/ตำบล"
               hint="District"
               dense
@@ -511,14 +570,14 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            เขต/อำเภอ
+            เขต/อาเภอ
             <br />county
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
-              label="เขต/อำเภอ"
+              v-model="datain.pr_aumphur2"
+              :rules="rules.pr_aumphur2"
+              label="เขต/อาเภอ"
               hint="county"
               dense
               outlined
@@ -530,9 +589,23 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
+              v-model="datain.pr_proince2"
+              :rules="rules.pr_proince2"
               label="จังหวัด"
+              hint="county"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+          <v-subheader>
+            ประเทศ
+            <br />county
+          </v-subheader>
+          <v-col cols="2" md="2">
+            <v-text-field
+              v-model="datain.pr_proince2"
+              :rules="rules.pr_proince2"
+              label="ประเทศ"
               hint="county"
               dense
               outlined
@@ -544,9 +617,9 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.nt"
-              :rules="rules.nt"
-              label="เขต/อำเภอ"
+              v-model="datain.pr_postaicode2"
+              :rules="rules.pr_postaicode2"
+              label="เขต/อาเภอ"
               hint="Postal code"
               dense
               outlined
@@ -556,7 +629,7 @@
 
         <v-row>
           <v-chip class="ma-2">การอุปสมบท/ Ordination</v-chip>
-          <v-radio-group v-model="type" row>
+          <v-radio-group v-model="datain.ordination" :rules="rules.ordination" row>
             <v-radio label="ไม่เคย/ No" dense outlined></v-radio>
             <v-radio label="บวชเรียนแล้ว-ชื่อวัดและที่ตั้ง/ (Yes / where)" dense outlined></v-radio>
           </v-radio-group>
@@ -566,8 +639,22 @@
           </v-col>
         </v-row>
         <v-row>
+          <v-chip class="ma-2">สถานภาพทางทหาร/ Military status</v-chip>
+          <br />
+          <br />
+          <v-radio-group v-model="datain.n_service" :rules="rules.n_service" row>
+            <v-radio label="ยังไม่ผ่านการเกณฑ์ทหาร /No Dischrged" dense outlined></v-radio>
+            <v-radio label="ผ่านการศึกษาวิชาทหาร /Military Studied" dense outlined></v-radio>
+            <v-radio label="ผ่านการเกณฑ์ทหาร /Dischrged" dense outlined></v-radio>
+            <v-radio label="ได้รับการยกเว้น /Exempted" dense outlined></v-radio>
+          </v-radio-group>
+          <v-col cols="3" md="3">
+            <v-text-field label="เนื่องจาก /Reason" hint="ระบุรายละเอียด" dense outlined></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
           <v-chip class="ma-2">สถานภาพการสมรส/ Marital status</v-chip>
-          <v-radio-group v-model="type" row>
+          <v-radio-group v-model="datain.marital" :rules="rules.marital" row>
             <v-radio label="โสด/ Single" dense outlined></v-radio>
             <v-radio label="หย้า/ Divorced" dense outlined></v-radio>
             <v-radio label="หม้าย/ Widowed" dense outlined></v-radio>
@@ -590,7 +677,7 @@
             <v-text-field label="อายุ" hint="Age" dense outlined></v-text-field>
           </v-col>
           <v-col cols="2" md="2">
-            <v-text-field label="อำชีพ/ตำแหน่ง" hint="Occupation / Position" dense outlined></v-text-field>
+            <v-text-field label="อาชีพ/ตำแหน่ง" hint="Occupation / Position" dense outlined></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -619,65 +706,159 @@
           class="ma-2"
         >ประวัติทางครอบครัว (ประวัติของบิดา / มารดา / พี่น้องทุกคน) / Family background</v-chip>
         <br />
-        <v-chip class="ma-2">ควำมสัมพันธ์/ Relation</v-chip>
+        <v-chip class="ma-2">ความสัมพันธ์/ Relation</v-chip>
+        <v-row>
+          <v-col cols="2" md="2">
+            <v-text-field
+              v-model="datain.num_b"
+              :rules="rules.num_b"
+              prepend-icon="mdi-account-multiple"
+              label="จำนวนบุตร /No."
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2" md="2">
+            <v-text-field
+              v-model="datain.order_b"
+              :rules="rules.order_b"
+              prepend-icon="mdi-account-multiple"
+              label="คุณเป็นบุตรคนที่ /No.Also"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2" md="2">
+            <v-text-field
+              v-model="datain.num_s"
+              :rules="rules.num_s"
+              prepend-icon="mdi-gender-male"
+              label="ชาย /son"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="2" md="2">
+            <v-text-field
+              v-model="datain.num_d"
+              :rules="rules.num_d"
+              prepend-icon="mdi-gender-female"
+              label="หญิง /daughter"
+              required
+            ></v-text-field>
+          </v-col>
+        </v-row>
         <v-row>
           <v-subheader>
             บิดา
             <br />Father
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="ชื่อ/นามสกุล" hint="Name" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.father_n"
+              :rules="rules.father_n"
+              label="ชื่อ/นามสกุล"
+              hint="Name"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             อายุ
             <br />Age
           </v-subheader>
           <v-col cols="1" md="1">
-            <v-text-field label="อายุ" hint="ระบุเป็นตัวเลข" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.father_age"
+              :rules="rules.father_age"
+              label="อายุ"
+              hint="ระบุเป็นตัวเลข"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             สถานที่ทำงาน/โทรศัพท์
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.father_wp"
+              :rules="rules.father_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.father_oc"
+              :rules="rules.father_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-subheader>
             มารดา
-            <br />Father
+            <br />Mather
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="ชื่อ/นามสกุล" hint="Name" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.mather_n"
+              :rules="rules.mather_n"
+              label="ชื่อ/นามสกุล"
+              hint="Name"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             อายุ
             <br />Age
           </v-subheader>
           <v-col cols="1" md="1">
-            <v-text-field label="อายุ" hint="ระบุเป็นตัวเลข" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.mather_age"
+              :rules="rules.mather_age"
+              label="อายุ"
+              hint="ระบุเป็นตัวเลข"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             สถานที่ทำงาน/โทรศัพท์
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.mather_wp"
+              :rules="rules.mather_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
-            ตำแหน่ง/อำชีพ
+            ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.mather_oc"
+              :rules="rules.mater_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -703,11 +884,11 @@
             <v-text-field label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
           </v-col>
           <v-subheader>
-            ตำแหน่ง/อำชีพ
+            ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field label="ตำแหน่ง/อำชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -838,37 +1019,67 @@
   </v-card>
 </template>
 <script>
-import moment from 'moment'
 import PictureInput from "vue-picture-input";
 export default {
   props: ["thisid"],
   components: {
     PictureInput
   },
-  data: () => ({
-      date: new Date().toISOString().substr(0, 10),
-      menu1: false,
-      menu2: false,
-    }),
+
   data() {
     return {
+      date3: new Date().toISOString().substr(0, 10),
+      date: new Date().toISOString().substr(0, 10),
+      menu: false,
+      modal: false,
+      menu2: false,
+      modal3: false,
+      menu3: false,
+      data3: null,
       data: null,
       valid: false,
       rules: {
+        position: [v => !!v || "Item is required"],
+        stratingdate: [v => !!v || "Item is required"],
+        news: [v => !!v || "Item is required"],
         nt: [v => !!v || "Item is required"],
         namet: [
           v => !!v || "Name is required",
-          v => (v && v.length >= 5) || "Name must be more than 5 characters",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
           v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
         ],
         surnamet: [
           v => !!v || "Name is required",
-          v => (v && v.length >= 5) || "Name must be more than 5 characters",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
           v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
-        ]
+        ],
+        nickt: [v => !!v || "Item is required"],
+        ne: [v => !!v || "Item is required"],
+        namee: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        surnamee: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        nicke: [v => !!v || "Item is required"],
+        email: [v => !!v || "Item is required"],
+        dofb: [v => !!v || "Item is required"],
+        height: [v => !!v || "Item is required"],
+        weight: [v => !!v || "Item is required"],
+        nationality: [v => !!v || "Item is required"],
+        citizen: [v => !!v || "Item is required"],
+        pr_add: [v => !!v || "Item is required"]
       },
       datain: {
         img: null,
+        date: "",
+        position: "",
+        stratingdate: "",
+        news: "",
         nt: "",
         namet: "",
         surnamet: "",
@@ -894,15 +1105,19 @@ export default {
         pr_proince: "",
         pr_country: "",
         pr_postaicode: "",
-        pr_map: ""
+        pr_map: "",
+        father_n: "",
+        father_age: "",
+        father_wp: "",
+        father_oc: "",
+        mather_n: "",
+        mather_age: "",
+        mather_wp: "",
+        mather_oc: ""
       }
     };
   },
-  computed: {
-      computedDateFormattedMomentjs () {
-        return this.date ? moment(this.date).format('dddd, MMMM Do YYYY') : ''
-         }
-      },
+
   methods: {
     async init() {},
     onChange(image) {

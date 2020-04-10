@@ -7,7 +7,7 @@
       color="indigo"
       dark
     >
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>บริษัทวีเอสที อีซีเอส (ประเทศไทย) จำกัด</v-toolbar-title>
     </v-app-bar>
 
     <v-content>

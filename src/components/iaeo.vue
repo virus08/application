@@ -25,6 +25,8 @@
               </v-subheader>
         <v-col cols="4">
           <v-text-field
+          v-model="mather_wp"
+              :rules="rules.mather_wp"
             label="ชื่อสถานศึกษาและที่ตั้ง/ Name of Institution/Location"
             hint="ชื่อสถานศึกษาและที่ตั้ง/ Name of Institution/Location"
             dense
