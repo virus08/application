@@ -416,8 +416,8 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.pr_proince"
-              :rules="rules.pr_proince"
+              v-model="datain.pr_country"
+              :rules="rules.pr_country"
               label="ประเทศ"
               hint="county"
               dense
@@ -603,8 +603,8 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.pr_proince2"
-              :rules="rules.pr_proince2"
+              v-model="datain.pr_country2"
+              :rules="rules.pr_country2"
               label="ประเทศ"
               hint="county"
               dense
@@ -1039,40 +1039,24 @@ export default {
       data: null,
       valid: false,
       rules: {
-        position: [v => !!v || "Item is required"],
-        stratingdate: [v => !!v || "Item is required"],
-        news: [v => !!v || "Item is required"],
-        nt: [v => !!v || "Item is required"],
-        namet: [
-          v => !!v || "Name is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters",
-          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
-        ],
-        surnamet: [
-          v => !!v || "Name is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters",
-          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
-        ],
-        nickt: [v => !!v || "Item is required"],
-        ne: [v => !!v || "Item is required"],
-        namee: [
-          v => !!v || "Name is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters",
-          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
-        ],
-        surnamee: [
-          v => !!v || "Name is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters",
-          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
-        ],
-        nicke: [v => !!v || "Item is required"],
-        email: [v => !!v || "Item is required"],
-        dofb: [v => !!v || "Item is required"],
-        height: [v => !!v || "Item is required"],
-        weight: [v => !!v || "Item is required"],
-        nationality: [v => !!v || "Item is required"],
-        citizen: [v => !!v || "Item is required"],
-        pr_add: [v => !!v || "Item is required"]
+        position: [ ],
+        stratingdate: [ ],
+        news: [ ],
+        nt: [ ],
+        namet: [  ],
+        surnamet: [ ],
+        nickt: [ ],
+        ne: [ ],
+        namee: [ ],
+        surnamee: [ ],
+        nicke: [ ],
+        email: [ ],
+        dofb: [ ],
+        height: [ ],
+        weight: [ ],
+        nationality: [ ],
+        citizen: [ ],
+        pr_add: [ ]
       },
       datain: {
         img: null,

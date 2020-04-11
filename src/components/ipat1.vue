@@ -1644,7 +1644,7 @@ export default {
         url: urldata + "/" + this.thisid
       });
       this.data = res.data;
-      this.$parent.$parent.$parent.e6 = 2;
+        
       let obj = Object.assign(this.data, this.datain);
       res = await axios({
         method: "put",

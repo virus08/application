@@ -14,7 +14,7 @@
          <small>ประวัติการศึกษา</small>
     </v-stepper-step>
     <v-stepper-content step="2">
-      <iaeo/>
+      <iaeo :thisid="thisid" />
       <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
       <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
@@ -24,7 +24,7 @@
         <small>ประวัติการทำงาน</small>
     </v-stepper-step>
     <v-stepper-content step="3">
-      <ipat1/>
+      <ipat1 :thisid="thisid" />
       <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
       <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
@@ -34,7 +34,7 @@
         <small>กรุณาตอบคำถามตามความคิดเห็นอย่างตรงไปตรงมาที่สุด</small>
     </v-stepper-step>
     <v-stepper-content step="4">
-      <ipat2/>
+      <ipat2 :thisid="thisid" />
       <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
       <v-btn color="primary" @click="e6 = 1">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
