@@ -18,7 +18,7 @@
                   <template v-slot:activator="{ on }">
                     <v-text-field
                       v-model="date"
-                      label="Picker in menu"
+                      label="วันที่สมัคร /Application Date*"
                       prepend-icon="mdi-calendar-multiple"
                       readonly
                       v-on="on"
@@ -36,7 +36,7 @@
                   prepend-icon="mdi-account-location"
                   v-model="datain.position"
                   :rules="rules.position"
-                  label="ตำแหน่ง /Position"
+                  label="ตำแหน่ง /Position*"
                   required
                 ></v-text-field>
               </v-col>
@@ -47,7 +47,7 @@
                   prepend-icon="mdi-calendar-question"
                   v-model="datain.stratingdate"
                   :rules="rules.stratingdate"
-                  label="วันเริ่มงาน /Strating Date"
+                  label="วันเริ่มงาน /Strating Date*"
                   required
                 ></v-text-field>
               </v-col>
@@ -56,7 +56,7 @@
                   prepend-icon="mdi-message-text-outline"
                   v-model="datain.news"
                   :rules="rules.news"
-                  label="รับทราบข่าวสารจาก"
+                  label="รับทราบข่าวสารจาก*"
                   required
                 ></v-text-field>
               </v-col>
@@ -81,20 +81,15 @@
         </v-row>
         <v-row align="center">
           <v-col cols="2" md="1.5">
-            <v-select
-              v-model="datain.nt"
-              :rules="rules.nt"
-              :items="['นาย','นาง.','นางสาว','บาทหลวง','หม่อมหลวง','หม่อมราชวงศ์','หม่อมเจ้า','ศาสตราจารย์เกียรติคุณ','ศาสตราจารย์','ผู้ช่วยศาสตราจารย์','รองศาสตราจารย์']"
-              label="คำนำหน้า(TH)"
-              dense
-              solo
-            ></v-select>
+            <v-container fluid>
+              <nameprefix />
+            </v-container>
           </v-col>
           <v-col cols="5" md="3">
             <v-text-field
               v-model="datain.namet"
               :rules="rules.namet"
-              label="ชื่อ / (TH)"
+              label="ชื่อ / (TH)*"
               hint="ระบุเป็นภาษาไทย"
               dense
               outlined
@@ -104,7 +99,7 @@
             <v-text-field
               v-model="datain.surnamet"
               :rules="rules.surnamet"
-              label="นามสกุล / (TH)"
+              label="นามสกุล / (TH)*"
               hint="ระบุเป็นภาษาไทย"
               dense
               outlined
@@ -114,7 +109,7 @@
             <v-text-field
               v-model="datain.nickt"
               :rules="rules.nt"
-              label="ชื่อเล่น / (TH)"
+              label="ชื่อเล่น / (TH)*"
               hint="ระบุเป็นภาษาไทย"
               dense
               outlined
@@ -127,7 +122,7 @@
               v-model="datain.ne"
               :rules="rules.ne"
               :items="['Mr.','Mrs.','Miss','Rev.','Mom Luang (M.L.)','Mom Rajawong (M.R.)','Mom Chao (M.C.)','Emeritus Professor','Professor','Assistant Professor','	Associate Professor']"
-              label="คำนำหน้า(EN)"
+              label="คำนำหน้า(EN)*"
               dense
               solo
             ></v-select>
@@ -136,7 +131,7 @@
             <v-text-field
               v-model="datain.namee"
               :rules="rules.namee"
-              label="Name / (EN)"
+              label="Name / (EN)*"
               hint="ระบุเป็นภาษาอังกฤษ"
               dense
               outlined
@@ -146,7 +141,7 @@
             <v-text-field
               v-model="datain.surnamee"
               :rules="rules.surnamee"
-              label="Surname / (EN)"
+              label="Surname / (EN)*"
               hint="ระบุเป็นภาษาอังกฤษ"
               dense
               outlined
@@ -156,7 +151,7 @@
             <v-text-field
               v-model="datain.nicke"
               :rules="rules.nicke"
-              label="Nickname / (EN)"
+              label="Nickname / (EN)*"
               hint="ระบุเป็นภาษาอังกฤษ"
               dense
               outlined
@@ -180,7 +175,7 @@
               <template v-slot:activator="{ on }">
                 <v-text-field
                   v-model="date3"
-                  label="ระบุวัน/เดือน/ปี เกิด"
+                  label="ระบุวัน/เดือน/ปี เกิด*"
                   prepend-icon="mdi-calendar-multiple"
                   readonly
                   v-on="on"
@@ -231,7 +226,7 @@
             <v-text-field
               v-model="datain.citizen"
               :rules="rules.citizen"
-              label="เชื้อชาติ/Race"
+              label="เชื้อชาติ/Race*"
               hint="Race"
               dense
               outlined
@@ -245,7 +240,7 @@
             <v-text-field
               v-model="datain.nationality"
               :rules="rules.nationality"
-              label="สัญชาติ/Nationality"
+              label="สัญชาติ/Nationality*"
               hint="Nationality"
               dense
               outlined
@@ -269,7 +264,7 @@
           </v-col>
           <v-subheader>
             ส่วนสูง
-            <br />Height
+            <br />Height*
           </v-subheader>
           <v-col cols="1" md="1">
             <v-text-field
@@ -283,7 +278,7 @@
           </v-col>
           <v-subheader>
             น้ำหนัก
-            <br />Weight
+            <br />Weight*
           </v-subheader>
           <v-col cols="1" md="1">
             <v-text-field
@@ -310,7 +305,7 @@
             ></v-select>
           </v-col>
         </v-row>
-        <v-chip class="ma-2">ที่อยู่ปัจจุบัน/ Pressent</v-chip>
+        <v-chip class="ma-2">** ที่อยู่ปัจจุบัน/ Pressent **</v-chip>
         <v-row>
           <v-subheader>
             บ้านเลขที่-หมู่ที่
@@ -332,8 +327,8 @@
           </v-subheader>
           <v-col cols="3" md="3">
             <v-text-field
-              v-model="datain.pr_add"
-              :rules="rules.pr_add"
+              v-model="datain.pr_addhh"
+              :rules="rules.pr_addhh"
               label="หมู่บ้าน/อาคาร"
               hint="Village/building"
               dense
@@ -450,14 +445,14 @@
         <v-row>
           <v-subheader>
             Telephone
-            <br />โทรศัพท์บ้าน
+            <br />โทรศัพท์บ้าน**
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field v-model="datain.tel" :rules="rules.tel" label="02 .." dense outlined></v-text-field>
           </v-col>
           <v-subheader>
             Mobile
-            <br />มือถือ
+            <br />มือถือ**
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
@@ -469,7 +464,7 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            Email
+            Email**
             <br />
           </v-subheader>
           <v-col cols="2" md="2">
@@ -482,14 +477,14 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            Facebook
+            Facebook**
             <br />
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field v-model="datain.facebook" :rules="rules.facebook" label dense outlined></v-text-field>
           </v-col>
           <v-subheader>
-            ID Line
+            ID Line**
             <br />
           </v-subheader>
           <v-col cols="2" md="2">
@@ -1039,24 +1034,40 @@ export default {
       data: null,
       valid: false,
       rules: {
-        position: [ ],
-        stratingdate: [ ],
-        news: [ ],
-        nt: [ ],
-        namet: [  ],
-        surnamet: [ ],
-        nickt: [ ],
-        ne: [ ],
-        namee: [ ],
-        surnamee: [ ],
-        nicke: [ ],
-        email: [ ],
-        dofb: [ ],
-        height: [ ],
-        weight: [ ],
-        nationality: [ ],
-        citizen: [ ],
-        pr_add: [ ]
+       position: [v => !!v || "Item is required"],
+        stratingdate: [v => !!v || "Item is required"],
+        news: [v => !!v || "Item is required"],
+        nt: [v => !!v || "Item is required"],
+        namet: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        surnamet: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        nickt: [v => !!v || "Item is required"],
+        ne: [v => !!v || "Item is required"],
+        namee: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        surnamee: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        nicke: [v => !!v || "Item is required"],
+        email: [v => !!v || "Item is required"],
+        dofb: [v => !!v || "Item is required"],
+        height: [v => !!v || "Item is required"],
+        weight: [v => !!v || "Item is required"],
+        nationality: [v => !!v || "Item is required"],
+        citizen: [v => !!v || "Item is required"],
+        pr_add: [v => !!v || "Item is required"]
       },
       datain: {
         img: null,

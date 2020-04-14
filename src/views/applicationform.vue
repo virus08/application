@@ -15,9 +15,6 @@
     </v-stepper-step>
     <v-stepper-content step="2">
       <iaeo :thisid="thisid" />
-      <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
-      <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
     </v-stepper-content>
 
     <v-stepper-step :complete="e6 > 3" step="3">Employment Record
@@ -25,9 +22,6 @@
     </v-stepper-step>
     <v-stepper-content step="3">
       <ipat1 :thisid="thisid" />
-      <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
-      <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
     </v-stepper-content>
 
     <v-stepper-step step="4">คำถามจากบริษัท VSTECS
@@ -35,9 +29,6 @@
     </v-stepper-step>
     <v-stepper-content step="4">
       <ipat2 :thisid="thisid" />
-      <v-btn color="green accent-1" @click="$refs.menu.save(editedItem.date)">Confirmed</v-btn>
-      <v-btn color="primary" @click="e6 = 1">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
     </v-stepper-content>
   </v-stepper>
 </template>

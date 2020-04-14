@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="Search for an option"
+      label="Certificate"
       multiple
       small-chips
       solo
@@ -85,18 +85,7 @@
       index: -1,
       items: [
         { header: 'Select an option or create one' },
-        {
-          text: 'เล่นฟุตบอล',
-          color: 'blue',
-        },
-        {
-          text: 'เล่นอินเตอร์เน็ต',
-          color: 'red',
-        },
-         {
-          text: 'ดูหนัง',
-          color: 'orange',
-        },
+        
       ],
       nonce: 1,
       menu: false,
@@ -126,11 +115,14 @@
 
           return v
         })
-        this.$parent.$parent.$parent.data.hobbies = this.model
+        this.callupdate();
       },
     },
 
     methods: {
+      callupdate(){
+        this.$parent.$parent.$parent.datain.certificate = this.model 
+      },
       edit (index, item) {
         if (!this.editing) {
           this.editing = item
@@ -155,6 +147,5 @@
     },
   }
 </script>
-
 
 

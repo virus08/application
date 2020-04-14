@@ -337,7 +337,7 @@
         <v-row>
           <v-col cols="2" sm="6" md="6">
             <v-container fluid>
-              <ccbox />
+              <activities />
             </v-container>
           </v-col>
         </v-row>
@@ -347,12 +347,12 @@
         <v-row>
           <v-col cols="2" sm="6" md="6">
             <v-container fluid>
-              <bbbox />
+              <hobbies />
             </v-container>
           </v-col>
         </v-row>
         <v-row>
-          <v-chip class="ma-2">มียานพาหนะเป็นของตัวเอง / Vehicle</v-chip>
+          <v-chip class="ma-2">มียานพาหนะเป็นของตัวเอง / Vehicle**</v-chip>
         </v-row>
         <v-row>
           <v-col cols="12" sm="2">
@@ -375,22 +375,22 @@
         <v-row>
           <v-col cols="1" sm="3" md="3">
             <v-container fluid>
-              <ifbox />
+              <software />
             </v-container>
           </v-col>
           <v-col cols="1" sm="3" md="3">
             <v-container fluid>
-              <ijbox />
+              <hardware />
             </v-container>
           </v-col>
           <v-col cols="1" sm="3" md="3">
             <v-container fluid>
-              <iabox />
+              <certificate />
             </v-container>
           </v-col>
           <v-col cols="1" sm="3" md="3">
             <v-container fluid>
-              <ipbox />
+              <others />
             </v-container>
           </v-col>
         </v-row>
@@ -458,7 +458,10 @@
         <v-row>
           <v-subheader>ภาษา/ Language</v-subheader>
           <v-col cols="1">
-            <v-text-field label="ภาษา/ Language" hint="ภาษา/ Language" dense outlined></v-text-field>
+            <v-text-field 
+            label="ภาษา/ Language" 
+            hint="ภาษา/ Language" dense outlined>
+            </v-text-field>
           </v-col>
           <v-col cols="2">
             <v-autocomplete
@@ -523,21 +526,21 @@
 
 <script>
 //import HelloWorld from '@/components/HelloWorld.vue'
-import ccbox from "@/components/combobox.vue";
-import bbbox from "@/components/babobox.vue";
-import ifbox from "@/components/ifbox.vue";
-import ijbox from "@/components/ijbox.vue";
-import iabox from "@/components/iabox.vue";
-import ipbox from "@/components/ipbox.vue";
+import hobbies from "@/components/hobbies.vue";
+import activities from "@/components/activities.vue";
+import software from "@/components/software.vue";
+import hardware from "@/components/hardware.vue";
+import certificate from "@/components/certificate.vue";
+import others from "@/components/others.vue";
 export default {
    props: ["thisid"],
   components: {
-    ccbox,
-    bbbox,
-    ifbox,
-    ijbox,
-    iabox,
-    ipbox
+    hobbies,
+    activities,
+    software,
+    hardware,
+    certificate,
+    others
   },
   data: () => ({
     datain: {

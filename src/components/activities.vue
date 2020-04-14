@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="Hardware"
+      label="Search for an option"
       multiple
       small-chips
       solo
@@ -85,8 +85,18 @@
       index: -1,
       items: [
         { header: 'Select an option or create one' },
-        
-       
+        {
+          text: 'เล่นฟุตบอล',
+          color: 'blue',
+        },
+        {
+          text: 'เล่นอินเตอร์เน็ต',
+          color: 'red',
+        },
+         {
+          text: 'ดูหนัง',
+          color: 'orange',
+        },
       ],
       nonce: 1,
       menu: false,
@@ -116,7 +126,7 @@
 
           return v
         })
-        this.$parent.$parent.$parent.datain.hobbies = this.model
+        this.$parent.$parent.$parent.data.activities= this.model
       },
     },
 
@@ -145,5 +155,6 @@
     },
   }
 </script>
+
 
 

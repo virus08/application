@@ -195,14 +195,18 @@
           >Please choose 1 topic for paragraph writing about 100 words or 10 sentences</p>
         </v-subheader>
 
-        <v-radio-group row>
+        <v-radio-group >
+          <v-col>
+          <v-row>
           <v-radio label=" My life in next 5 years" dense outlined></v-radio>
-        </v-radio-group>
-        <v-radio-group row>
+          </v-row>
+          <v-row>
           <v-radio label=" If I could turn back time" dense outlined></v-radio>
-        </v-radio-group>
-        <v-radio-group row>
+          </v-row>
+          <v-row>
           <v-radio label=" My dream boss" dense outlined></v-radio>
+          </v-row>
+          </v-col>
         </v-radio-group>
 
         <p class="font-weight-medium"></p>
@@ -218,7 +222,6 @@
         </v-col>
       </v-form>
       <v-row>
-        <v-btn color="primary" :disabled="!valid" @click="modify()">Back</v-btn>
         <v-btn color="primary" :disabled="!valid" @click="save()">Continue</v-btn>
       </v-row>
     </v-container>

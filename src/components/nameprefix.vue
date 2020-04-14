@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="Software"
+      label="คำนำหน้า"
       multiple
       small-chips
       solo
@@ -85,8 +85,8 @@
       index: -1,
       items: [
         { header: 'Select an option or create one' },
-
         
+       
       ],
       nonce: 1,
       menu: false,
@@ -116,7 +116,7 @@
 
           return v
         })
-        this.$parent.$parent.$parent.datain.hobbies = this.model
+        this.$parent.$parent.$parent.datain.nameprefix = this.model
       },
     },
 

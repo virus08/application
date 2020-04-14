@@ -1,4 +1,4 @@
-<template>
+ <template>
   <v-card>
     <v-container fluid>
       <v-form ref="form" v-model="valid">
@@ -1234,8 +1234,8 @@
           </v-subheader>
           <v-col cols="3" md="3">
             <v-text-field
-              v-model="datain.relation"
-              :rules="rules.relation"
+              v-model="datain.relation1"
+              :rules="rules.relation1"
               label="Details"
               hint="Details"
               dense
@@ -1466,8 +1466,8 @@
               <p class="font-weight-black">ความสัมพันธ์/Relation</p>
             </v-subheader>
             <v-text-field
-              v-model="datain.relation"
-              :rules="rules.relation"
+              v-model="datain.relation2"
+              :rules="rules.relation2"
               label="Details"
               hint="Details"
               dense
@@ -1523,7 +1523,6 @@
         </v-col>
       </v-form>
       <v-row>
-        <v-btn color="primary" :disabled="!valid" @click="modify()">Back</v-btn>
         <v-btn color="primary" :disabled="!valid" @click="save()">Continue</v-btn>
       </v-row>
     </v-container>
@@ -1538,7 +1537,7 @@ export default {
       valid: false,
       rules: {
         name_surname: [v => !!v || "name_surname is required"],
-        relation: [v => !!v || "relation is required"],
+        relation1: [v => !!v || "relation is required"],
         telephone: [v => !!v || "telephone is required"],
         office: [v => !!v || "office is required"],
         elephone: [v => !!v || "elephone is required"],
@@ -1621,13 +1620,17 @@ export default {
         course3: "",
         trainingyear3: "",
         traininghours3: "",
+        name_surname: "",
+        relation1: "",
+        address: "",
+        telephone: "",
         explain1: "",
         explain2: "",
         explain3: "",
         because: "",
         name: "",
         department: "",
-        relation: "",
+        relation2: "",
         salary_Expectation: "",
         other_income_expected: "",
         applicant_s_signature: ""
@@ -1644,7 +1647,7 @@ export default {
         url: urldata + "/" + this.thisid
       });
       this.data = res.data;
-        
+      this.$parent.$parent.$parent.e6 = 2;
       let obj = Object.assign(this.data, this.datain);
       res = await axios({
         method: "put",
@@ -1658,3 +1661,5 @@ export default {
   }
 };
 </script>
+
+

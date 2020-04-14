@@ -116,7 +116,7 @@
 
           return v
         })
-        this.$parent.$parent.$parent.datain.hobbies = this.model
+        this.$parent.$parent.$parent.datain.software = this.model
       },
     },
 

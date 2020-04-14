@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="Certificate"
+      label="Software"
       multiple
       small-chips
       solo
@@ -85,6 +85,7 @@
       index: -1,
       items: [
         { header: 'Select an option or create one' },
+
         
       ],
       nonce: 1,
@@ -115,14 +116,11 @@
 
           return v
         })
-        this.callupdate();
+        this.$parent.$parent.$parent.datain.others = this.model
       },
     },
 
     methods: {
-      callupdate(){
-        this.$parent.$parent.$parent.datain.hobbies = this.model 
-      },
       edit (index, item) {
         if (!this.editing) {
           this.editing = item
