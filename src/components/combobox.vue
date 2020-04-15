@@ -54,7 +54,7 @@
   </v-container>
 </template>
 <script>
-export default { 
+export default {
   data: () => ({
     activator: null,
     attach: null,

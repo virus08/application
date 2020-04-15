@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-form ref="form" v-model="valid">
         <v-subheader>
-          <p class="font-weight-black">1). อะไรที่ทำให้คุณอยากเปลี่ยนงานใหม่</p>
+          <p class="font-weight-black">1). อะไรที่ทำให้คุณอยากเปลี่ยนงานใหม่ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -16,7 +16,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">2). อะไรที่ทำให้คุณสนใจมาสมัครงานที่นี่</p>
+          <p class="font-weight-black">2). อะไรที่ทำให้คุณสนใจมาสมัครงานที่นี่ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -29,7 +29,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">3). คุณคิดว่าตัวคุณเหมาะสมกับตำแหน่งที่คุณสมัครอย่างไรบ้าง</p>
+          <p class="font-weight-black">3). คุณคิดว่าตัวคุณเหมาะสมกับตำแหน่งที่คุณสมัครอย่างไรบ้าง *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -44,7 +44,7 @@
         <v-subheader>
           <p
             class="font-weight-black"
-          >4). ในการทำงานที่ผ่านมาคุณได้ตั้งเป้าหมายในการทำงานหรือไม่ และประสบความสำเร็จตามเป้าหมายมากน้อยเพียงใด</p>
+          >4). ในการทำงานที่ผ่านมาคุณได้ตั้งเป้าหมายในการทำงานหรือไม่ และประสบความสำเร็จตามเป้าหมายมากน้อยเพียงใด *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -57,7 +57,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">5). อธิบายความหมายของ “คิดบวกเชิงสร้างสรรค์” ในความคิดของคุณ</p>
+          <p class="font-weight-black">5). อธิบายความหมายของ “คิดบวกเชิงสร้างสรรค์” ในความคิดของคุณ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -70,7 +70,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">6). อธิบายความหมายของ “จริงใจในสิ่งที่ทำ” ในความคิดของคุณ</p>
+          <p class="font-weight-black">6). อธิบายความหมายของ “จริงใจในสิ่งที่ทำ” ในความคิดของคุณ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -83,7 +83,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">7). อธิบายความหมายของ “ทำงานอย่างมืออาชีพ” ในความคิดของคุณ</p>
+          <p class="font-weight-black">7). อธิบายความหมายของ “ทำงานอย่างมืออาชีพ” ในความคิดของคุณ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -96,7 +96,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">8). อธิบายความหมายของ “เป็นเจ้าของร่วมกัน” ในความคิดของคุณ</p>
+          <p class="font-weight-black">8). อธิบายความหมายของ “เป็นเจ้าของร่วมกัน” ในความคิดของคุณ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -109,7 +109,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">9). อธิบายความหมายของ “รวมพลังเป็นหนึ่งเดียว” ในความคิดของคุณ</p>
+          <p class="font-weight-black">9). อธิบายความหมายของ “รวมพลังเป็นหนึ่งเดียว” ในความคิดของคุณ *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -122,7 +122,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">10).ผลงานใดที่ทำให้คุณภาคภูมิใจมากที่สุด</p>
+          <p class="font-weight-black">10).ผลงานใดที่ทำให้คุณภาคภูมิใจมากที่สุด *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -135,7 +135,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">11). หากคุณเลือกได้คุณอยากมีหัวหน้าแบบใด</p>
+          <p class="font-weight-black">11). หากคุณเลือกได้คุณอยากมีหัวหน้าแบบใด *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -148,7 +148,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">12). หากคุณเลือกได้คุณอยากได้ลูกน้องแบบใด</p>
+          <p class="font-weight-black">12). หากคุณเลือกได้คุณอยากได้ลูกน้องแบบใด *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -163,7 +163,7 @@
         <v-subheader>
           <p
             class="font-weight-black"
-          >13). เมื่อคุณประสบปัญหาในการทำงาน (หรือชีวิต) มากที่สุด จนรู้สึกท้อถอย คุณมีวิธีการแก้ไขสถานการณ์นั้นอย่างไร</p>
+          >13). เมื่อคุณประสบปัญหาในการทำงาน (หรือชีวิต) มากที่สุด จนรู้สึกท้อถอย คุณมีวิธีการแก้ไขสถานการณ์นั้นอย่างไร *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -176,7 +176,7 @@
           ></v-text-field>
         </v-col>
         <v-subheader>
-          <p class="font-weight-black">14). คุณคิดว่าอยากจะพัฒนาตนเองในเรื่องใดมากที่สุด เพราะอะไร</p>
+          <p class="font-weight-black">14). คุณคิดว่าอยากจะพัฒนาตนเองในเรื่องใดมากที่สุด เพราะอะไร *</p>
         </v-subheader>
         <v-col cols="2" md="10">
           <v-text-field
@@ -280,7 +280,7 @@ export default {
         url: urldata + "/" + this.thisid
       });
       this.data = res.data;
-      this.$parent.$parent.$parent.e6 = 2;
+      this.$parent.$parent.$parent.e6 = 0;
       let obj = Object.assign(this.data, this.datain);
       res = await axios({
         method: "put",

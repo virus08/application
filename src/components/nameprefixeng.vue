@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="คำนำหน้า (TH)"
+      label="คำนำหน้า (EN)"
       multiple
       small-chips
       solo
@@ -86,15 +86,15 @@
       items: [
         { header: 'Specify your name prefix.' },
         {
-          text: 'นาย',
+          text: 'Mr.',
           color: 'green accent-3',
         },
         {
-          text: 'นาง',
+          text: 'Mrs.',
           color: 'green accent-2',
         },
          {
-          text: 'นางสาว',
+          text: 'Miss.',
           color: 'orange lighten-2',
         },
        
@@ -127,7 +127,7 @@
 
           return v
         })
-        this.$parent.$parent.$parent.datain.nameprefix = this.model
+        this.$parent.$parent.$parent.datain.nameprefixeng = this.model
       },
     },
 

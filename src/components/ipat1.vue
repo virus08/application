@@ -1216,7 +1216,7 @@
         <v-row>
           <v-col cols="2">
             <v-subheader>
-              <p class="font-weight-black">ชื่อ-สกุล/Name-Surname</p>
+              <p class="font-weight-black">ชื่อ-สกุล/Name-Surname * </p>
             </v-subheader>
           </v-col>
           <v-col cols="5" md="5">
@@ -1230,7 +1230,7 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            <p class="font-weight-black">ความสัมพันธ์/Relation</p>
+            <p class="font-weight-black">ความสัมพันธ์/Relation *</p>
           </v-subheader>
           <v-col cols="3" md="3">
             <v-text-field
@@ -1260,7 +1260,7 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            <p class="font-weight-black">โทรศัพท์/Telephone</p>
+            <p class="font-weight-black">โทรศัพท์/Telephone*</p>
           </v-subheader>
           <v-col cols="3" md="3">
             <v-text-field
@@ -1278,7 +1278,7 @@
             <v-subheader>
               <p class="font-weight-black">
                 ที่ทำงำน
-                <br />Office
+                <br />Office *
               </p>
             </v-subheader>
           </v-col>
@@ -1311,7 +1311,7 @@
           <v-subheader>
             <p class="font-weight-black">
               โทรศัพท์
-              <br />elephone
+              <br />elephone *
             </p>
           </v-subheader>
           <v-col cols="2" md="2">
@@ -1647,7 +1647,7 @@ export default {
         url: urldata + "/" + this.thisid
       });
       this.data = res.data;
-      this.$parent.$parent.$parent.e6 = 2;
+      this.$parent.$parent.$parent.e6 = 4;
       let obj = Object.assign(this.data, this.datain);
       res = await axios({
         method: "put",

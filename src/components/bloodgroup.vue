@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="คำนำหน้า (TH)"
+      label="กรุ๊ปเลือด"
       multiple
       small-chips
       solo
@@ -84,18 +84,22 @@
       editing: null,
       index: -1,
       items: [
-        { header: 'Specify your name prefix.' },
+        { header: '' },
         {
-          text: 'นาย',
+          text: 'A',
           color: 'green accent-3',
         },
         {
-          text: 'นาง',
+          text: 'B',
           color: 'green accent-2',
         },
          {
-          text: 'นางสาว',
+          text: 'O',
           color: 'orange lighten-2',
+        },
+        {
+          text: 'AB',
+          color: 'orange lighten-3',
         },
        
       ],
@@ -127,7 +131,7 @@
 
           return v
         })
-        this.$parent.$parent.$parent.datain.nameprefix = this.model
+        this.$parent.$parent.$parent.datain.bloodbroup = this.model
       },
     },
 

@@ -43,13 +43,28 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field
-                  prepend-icon="mdi-calendar-question"
-                  v-model="datain.stratingdate"
-                  :rules="rules.stratingdate"
-                  label="วันเริ่มงาน /Strating Date*"
-                  required
-                ></v-text-field>
+                <v-dialog
+                  ref="dialog"
+                  v-model="modal3"
+                  :return-value.sync="date"
+                  persistent
+                  width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="date3"
+                      label="วันเริ่มงาน /Strating Date*"
+                      prepend-icon="mdi-calendar-multiple"
+                      readonly
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker v-model="date3" scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="modal3 = false">Cancel</v-btn>
+                    <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                  </v-date-picker>
+                </v-dialog>
               </v-col>
               <v-col cols="12" sm="6" md="4">
                 <v-text-field
@@ -80,53 +95,58 @@
           </v-col>
         </v-row>
         <v-row align="center">
-          <v-col cols="2" md="1.5">
+          <v-col cols="2" md="2">
             <v-container fluid>
-              <nameprefix />
+              <v-autocomplete
+                :items="lists[3].data"
+                outlined
+                dense
+                chips
+                small-chips
+                label="คำนำหน้าชื่อ"
+                hint="อะไรไม่รุ"
+              />
             </v-container>
           </v-col>
-          <v-col cols="5" md="3">
-            <v-text-field
-              v-model="datain.namet"
-              :rules="rules.namet"
-              label="ชื่อ / (TH)*"
-              hint="ระบุเป็นภาษาไทย"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-col cols="5" md="3">
-            <v-text-field
-              v-model="datain.surnamet"
-              :rules="rules.surnamet"
-              label="นามสกุล / (TH)*"
-              hint="ระบุเป็นภาษาไทย"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.nickt"
-              :rules="rules.nt"
-              label="ชื่อเล่น / (TH)*"
-              hint="ระบุเป็นภาษาไทย"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
+          <v-row>
+            <v-col cols="5" md="3">
+              <v-text-field
+                v-model="datain.namet"
+                :rules="rules.namet"
+                label="ชื่อ / (TH)*"
+                hint="ระบุเป็นภาษาไทย"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-col cols="5" md="3">
+              <v-text-field
+                v-model="datain.surnamet"
+                :rules="rules.surnamet"
+                label="นามสกุล / (TH)*"
+                hint="ระบุเป็นภาษาไทย"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.nickt"
+                :rules="rules.nt"
+                label="ชื่อเล่น / (TH)*"
+                hint="ระบุเป็นภาษาไทย"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+          </v-row>
         </v-row>
         <v-row>
-          <v-col cols="2" md="1.5">
-            <v-select
-              v-model="datain.ne"
-              :rules="rules.ne"
-              :items="['Mr.','Mrs.','Miss','Rev.','Mom Luang (M.L.)','Mom Rajawong (M.R.)','Mom Chao (M.C.)','Emeritus Professor','Professor','Assistant Professor','	Associate Professor']"
-              label="คำนำหน้า(EN)*"
-              dense
-              solo
-            ></v-select>
-          </v-col>
+          <v-col cols="2" md="2">
+            <v-container fluid>
+              <nameprefixeng />
+            </v-container>
+          </v-col>  
           <v-col cols="5" md="3">
             <v-text-field
               v-model="datain.namee"
@@ -160,41 +180,49 @@
         </v-row>
         <v-row>
           <!-- ยังใช้งานไม่ได้ date brihtday -->
-          <v-subheader>
-            วันเกิด
-            <br />Date of brith
-          </v-subheader>
-          <v-col cols="4" sm="2" md="2">
-            <v-dialog
-              ref="dialog"
-              v-model="modal3"
-              :return-value.sync="date"
-              persistent
-              width="290px"
-            >
-              <template v-slot:activator="{ on }">
-                <v-text-field
-                  v-model="date3"
-                  label="ระบุวัน/เดือน/ปี เกิด*"
-                  prepend-icon="mdi-calendar-multiple"
-                  readonly
-                  v-on="on"
-                  dense
-                  outlined
-                ></v-text-field>
-              </template>
-              <v-date-picker v-model="date3" scrollable>
-                <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="modal3 = false">Cancel</v-btn>
-                <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
-              </v-date-picker>
-            </v-dialog>
+          <v-col cols="4">
+            <v-row>
+            <v-col cols="3">
+              <v-subheader>
+                วันเกิด
+                <br />Brith Date
+              </v-subheader>
+            </v-col>
+            <v-col cols="5">
+              <v-dialog
+                ref="dialog"
+                v-model="modal3"
+                :return-value.sync="date"
+                persistent
+                width="290px"
+              >
+                <template v-slot:activator="{ on }">
+                  <v-text-field
+                    v-model="date4"
+                    label="วัน/เดือน/ปี*"
+                    prepend-icon="mdi-calendar-multiple"
+                    readonly
+                    v-on="on"
+                    dense
+                    outlined
+                  ></v-text-field>
+                </template>
+                <v-date-picker v-model="date4" scrollable>
+                  <v-spacer></v-spacer>
+                  <v-btn text color="primary" @click="modal4 = false">Cancel</v-btn>
+                  <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                </v-date-picker>
+              </v-dialog>
+            </v-col>
+            </v-row>
           </v-col>
-          <v-subheader>
-            เพศ
-            <br />Sex
-          </v-subheader>
-          <v-col cols="2" md="1">
+          <v-col>
+            <v-subheader>
+              เพศ
+              <br />Sex
+            </v-subheader>
+          </v-col>
+          <v-col>
             <v-select
               v-model="datain.sex"
               :rules="rules.sex"
@@ -204,11 +232,13 @@
               solo
             ></v-select>
           </v-col>
-          <v-subheader>
-            อายุ
-            <br />Age
-          </v-subheader>
-          <v-col cols="2" md="2">
+          <v-col>
+            <v-subheader>
+              อายุ
+              <br />Age
+            </v-subheader>
+          </v-col>
+          <v-col>
             <v-text-field
               v-model="datain.age"
               :rules="rules.age"
@@ -218,33 +248,45 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            เชื้อชาติ
-            <br />Citizen
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.citizen"
-              :rules="rules.citizen"
-              label="เชื้อชาติ/Race*"
-              hint="Race"
-              dense
-              outlined
-            ></v-text-field>
+          <v-col cols="3">
+            <v-row>
+            <v-col cols="3">
+              <v-subheader>
+                เชื้อชาติ
+                <br />Citizen
+              </v-subheader>
+            </v-col>
+            <v-col cols="9">
+              <v-text-field
+                v-model="datain.citizen"
+                :rules="rules.citizen"
+                label="เชื้อชาติ/Race*"
+                hint="Race"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            </v-row>
           </v-col>
-          <v-subheader>
-            สัญชาติ
-            <br />Nationality
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.nationality"
-              :rules="rules.nationality"
-              label="สัญชาติ/Nationality*"
-              hint="Nationality"
-              dense
-              outlined
-            ></v-text-field>
+          <v-col cols="3">
+            <v-row>
+            <v-col cols="3">
+              <v-subheader>
+                สัญชาติ
+                <br />Nationality
+              </v-subheader>
+            </v-col>
+            <v-col cols="9">
+              <v-text-field
+                v-model="datain.nationality"
+                :rules="rules.nationality"
+                label="สัญชาติ/Nationality*"
+                hint="Nationality"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            </v-row>
           </v-col>
         </v-row>
         <v-row>
@@ -294,15 +336,16 @@
             กรุ๊ปเลือด
             <br />Blood Group
           </v-subheader>
-          <v-col cols="2" md="1">
-            <v-select
-              v-model="datain.blood"
-              :rules="rules.blood"
-              :items="['A','B','O','AB']"
-              label
+          <v-col cols="2" md="2">
+            <v-autocomplete
+              :items="lists[4].data"
+              outlined
               dense
-              solo
-            ></v-select>
+              chips
+              small-chips
+              label="คำนำหน้าชื่อ"
+              hint="อะไรไม่รุ"
+            />
           </v-col>
         </v-row>
         <v-chip class="ma-2">** ที่อยู่ปัจจุบัน/ Pressent **</v-chip>
@@ -491,137 +534,140 @@
             <v-text-field v-model="datain.line" :rules="rules.line" label dense outlined></v-text-field>
           </v-col>
         </v-row>
-
-        <v-chip class="ma-2">ที่อยู่ตามทะเบียนบ้าน/ Permanent address</v-chip>
         <v-row>
-          <v-subheader>
-            บ้านเลขที่-หมู่ที่
-            <br />House number
-          </v-subheader>
-          <v-col cols="1" md="1">
-            <v-text-field
-              v-model="datain.pr_add2"
-              :rules="rules.pr_add2"
-              label="บ้านเลขที่ / หมู่"
-              hint="House number"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            หมู่บ้าน/อาคาร
-            <br />Village/building
-          </v-subheader>
-          <v-col cols="3" md="3">
-            <v-text-field
-              v-model="datain.pr_add2"
-              :rules="rules.pr_add2"
-              label="หมู่บ้าน/อาคาร"
-              hint="Village/building"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            ซอย
-            <br />Alley
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_soi2"
-              :rules="rules.pr_soi2"
-              label="ซอย"
-              hint="Alley"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            ถนน
-            <br />Street
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_street2"
-              :rules="rules.pr_street2"
-              label="ถนน"
-              hint="Street"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            แขวง/ตำบล
-            <br />District
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_district2"
-              :rules="rules.pr_district2"
-              label="แขวง/ตำบล"
-              hint="District"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            เขต/อาเภอ
-            <br />county
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_aumphur2"
-              :rules="rules.pr_aumphur2"
-              label="เขต/อาเภอ"
-              hint="county"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            จังหวัด
-            <br />county
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_proince2"
-              :rules="rules.pr_proince2"
-              label="จังหวัด"
-              hint="county"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            ประเทศ
-            <br />county
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_country2"
-              :rules="rules.pr_country2"
-              label="ประเทศ"
-              hint="county"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-subheader>
-            รหัสไปรษณีย์
-            <br />Postal code
-          </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field
-              v-model="datain.pr_postaicode2"
-              :rules="rules.pr_postaicode2"
-              label="เขต/อาเภอ"
-              hint="Postal code"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
+          <v-switch v-model="address_is_same" label="ที่อยู่ตามทะเบียนบ้านเป็นที่อยู่ปัจจุบัน" />
         </v-row>
-
+        <div v-if="!address_is_same">
+          <v-chip class="ma-2">ที่อยู่ตามทะเบียนบ้าน/ Permanent address</v-chip>
+          <v-row>
+            <v-subheader>
+              บ้านเลขที่-หมู่ที่
+              <br />House number
+            </v-subheader>
+            <v-col cols="1" md="1">
+              <v-text-field
+                v-model="datain.pr_add2"
+                :rules="rules.pr_add2"
+                label="บ้านเลขที่ / หมู่"
+                hint="House number"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              หมู่บ้าน/อาคาร
+              <br />Village/building
+            </v-subheader>
+            <v-col cols="3" md="3">
+              <v-text-field
+                v-model="datain.pr_add2"
+                :rules="rules.pr_add2"
+                label="หมู่บ้าน/อาคาร"
+                hint="Village/building"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              ซอย
+              <br />Alley
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_soi2"
+                :rules="rules.pr_soi2"
+                label="ซอย"
+                hint="Alley"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              ถนน
+              <br />Street
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_street2"
+                :rules="rules.pr_street2"
+                label="ถนน"
+                hint="Street"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              แขวง/ตำบล
+              <br />District
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_district2"
+                :rules="rules.pr_district2"
+                label="แขวง/ตำบล"
+                hint="District"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              เขต/อาเภอ
+              <br />county
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_aumphur2"
+                :rules="rules.pr_aumphur2"
+                label="เขต/อาเภอ"
+                hint="county"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              จังหวัด
+              <br />county
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_proince2"
+                :rules="rules.pr_proince2"
+                label="จังหวัด"
+                hint="county"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              ประเทศ
+              <br />county
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_country2"
+                :rules="rules.pr_country2"
+                label="ประเทศ"
+                hint="county"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+            <v-subheader>
+              รหัสไปรษณีย์
+              <br />Postal code
+            </v-subheader>
+            <v-col cols="2" md="2">
+              <v-text-field
+                v-model="datain.pr_postaicode2"
+                :rules="rules.pr_postaicode2"
+                label="เขต/อาเภอ"
+                hint="Postal code"
+                dense
+                outlined
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </div>
         <v-row>
           <v-chip class="ma-2">การอุปสมบท/ Ordination</v-chip>
           <v-radio-group v-model="datain.ordination" :rules="rules.ordination" row>
@@ -694,7 +740,7 @@
         <v-row>
           <v-chip class="ma-2">จำนวนบุตร / Number of children</v-chip>
           <v-col cols="2" md="2">
-            <v-select :items="['1','2','3','4','5']" label="จำนวนบุตร" dense solo></v-select>
+            <v-text-field label="จำนวนบุตร" dense outlined></v-text-field>
           </v-col>
         </v-row>
         <v-chip
@@ -1014,27 +1060,40 @@
   </v-card>
 </template>
 <script>
+import nameprefix from "@/components/nameprefix.vue";
+import nameprefixeng from "@/components/nameprefixeng.vue";
+import bloodgroup from "@/components/nameprefixeng.vue";
 import PictureInput from "vue-picture-input";
+// import
 export default {
   props: ["thisid"],
   components: {
-    PictureInput
+    PictureInput,
+    nameprefix,
+    nameprefixeng,
+    bloodgroup
   },
 
   data() {
     return {
+      lists: [],
+      address_is_same: false,
+      date4: new Date().toISOString().substr(0, 10),
       date3: new Date().toISOString().substr(0, 10),
       date: new Date().toISOString().substr(0, 10),
       menu: false,
       modal: false,
       menu2: false,
       modal3: false,
+      modal4: false,
       menu3: false,
+      menu4: false,
+      data4: null,
       data3: null,
       data: null,
       valid: false,
       rules: {
-       position: [v => !!v || "Item is required"],
+        position: [v => !!v || "Item is required"],
         stratingdate: [v => !!v || "Item is required"],
         news: [v => !!v || "Item is required"],
         nt: [v => !!v || "Item is required"],
@@ -1060,14 +1119,86 @@ export default {
           v => (v && v.length >= 2) || "Name must be more than 5 characters",
           v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
         ],
-        nicke: [v => !!v || "Item is required"],
-        email: [v => !!v || "Item is required"],
-        dofb: [v => !!v || "Item is required"],
-        height: [v => !!v || "Item is required"],
-        weight: [v => !!v || "Item is required"],
-        nationality: [v => !!v || "Item is required"],
-        citizen: [v => !!v || "Item is required"],
-        pr_add: [v => !!v || "Item is required"]
+        nicke: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        email: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        tel: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        mobile: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        facebook: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        line: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        dofb: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        height: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        weight: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        nationality: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        citizen: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_add: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_soi: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_street: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_district: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_aumphur: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_proince: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_country: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        pr_postaicode: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
+        n_service: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ]
       },
       datain: {
         img: null,
@@ -1114,7 +1245,16 @@ export default {
   },
 
   methods: {
-    async init() {},
+    async init() {
+      let listurl = process.env.VUE_APP_LIST;
+      //console.log(listurl);
+      let res = await axios({
+        method: "get",
+        url: listurl
+      });
+      this.lists = res.data;
+      // console.log(this.lists);
+    },
     onChange(image) {
       console.log("New picture selected!");
       if (image) {
@@ -1124,6 +1264,7 @@ export default {
         console.log("FileReader API not supported: use the <form>, Luke!");
       }
     },
+
     async save() {
       let urldata = process.env.VUE_APP_DATA;
 
