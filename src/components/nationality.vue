@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="hardware"
+      label="Search for an option"
       multiple
       small-chips
       solo
@@ -53,10 +53,9 @@
     </v-combobox>
   </div>
 </template>
-<script>
+<script>    
 export default {
   data: () => ({
-    listurl: process.env.VUE_APP_CP,
     activator: null,
     attach: null,
     colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
@@ -83,29 +82,26 @@ export default {
           };
 
           this.items.push(v);
-          axios.post(this.listurl, v);
+          let listurl = process.env.VUE_APP_NATION;
+          axios.post(listurl, v);
 
           this.nonce++;
         }
-        this.items = [];
-        this.getItem();
+
         return v;
       });
-      this.$parent.$parent.$parent.datain.com_program = this.model;
+      this.$parent.$parent.$parent.data.nationality = this.model;
     }
   },
 
   methods: {
-    async edit(index, item) {
+    edit(index, item) {
       if (!this.editing) {
         this.editing = item;
         this.index = index;
-        //this.items = [];
-        //this.getItem();
       } else {
         this.editing = null;
         this.index = -1;
-        axios.put(this.listurl+'/'+item.id, item);
       }
     },
     filter(item, queryText, itemText) {
@@ -124,9 +120,10 @@ export default {
       );
     },
     async getItem() {
+      let listurl = process.env.VUE_APP_NATION;
       let res = await axios({
         method: "get",
-        url: this.listurl
+        url: listurl
       });
       this.items = res.data;
       // console.log(this.items);

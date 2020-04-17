@@ -13,7 +13,7 @@
               </v-toolbar>
               <v-tabs vertical>
                 <v-tab>
-                  <v-icon left>mdi-account</v-icon>Paaa
+                  <v-icon left>mdi-account</v-icon>Personal Data
                 </v-tab>
                 <v-tab>
                   <v-icon left>mdi-lock</v-icon>Option 2

@@ -44,52 +44,114 @@
         "AB"
       ],
       "id": 5
+    },
+    {
+      "data": []
     }
   ],
-  "hb": [
+  "nationality": [
+    {
+      "header": "Select or create one",
+      "id": 1
+    },
+    {
+      "text": "ไทย/Thai",
+      "color": "blue",
+      "id": 2
+    }
+  ],
+  "citizen": [
+    {
+      "header": "Select or create one",
+      "id": 1
+    },
+    {
+      "text": "ไทย/Thai",
+      "color": "blue",
+      "id": 2
+    },
+    {
+      "text": "ลาว/Laos",
+      "color": "red"
+    },
+    {
+      "text": "จีน/Chaina",
+      "color": "yellow",
+      "id": 3
+    }
+  ],
+  "com_program": [
+    {
+      "id": 1,
+      "header": "Select or create one"
+    },
+    {
+      "id": 2,
+      "text": "word",
+      "color": "blue"
+    },
+    {
+      "text": "excel",
+      "color": "green",
+      "id": 3
+    },
+    {
+      "text": "Oracle Database",
+      "color": "purple",
+      "id": 4
+    },
+    {
+      "text": "MySQL",
+      "color": "indigo",
+      "id": 5
+    },
+    {
+      "text": "skill",
+      "color": "green",
+      "id": 6
+    }
+  ],
+  "hobbies": [
     {
       "id": 1,
       "header": "Select an option or create one"
     },
     {
       "id": 2,
-      "text": "เล่นฟุตบอล",
+      "text": "internet",
       "color": "blue"
     },
     {
       "id": 3,
-      "text": "เล่นอินเตอร์เน็ต",
+      "text": "ปลูกต้นไม้",
       "color": "red"
+    }
+  ],
+  "sports": [
+    {
+      "id": 1,
+      "header": "Select an option or create one"
     },
     {
-      "id": 4,
-      "text": "ดูหนัง",
-      "color": "orange"
+      "id": 2,
+      "text": "ปิงปอง",
+      "color": "blue"
+    }
+  ],
+  "skill": [
+    {
+      "id": 1,
+      "header": "Select an option or create one"
     },
     {
-      "id": 5,
-      "text": "ฟังเพลง",
-      "color": "teal"
+      "id": 2,
+      "text": "พิมพ์สัมผัส",
+      "color": "blue"
     },
     {
-      "text": "aaa",
-      "color": "green",
-      "id": 6
-    },
-    {
-      "text": "bbb",
-      "color": "purple",
-      "id": 7
-    },
-    {
-      "text": "dhosac",
-      "color": "green",
-      "id": 8
-    },
-    {
-      "text": "88888",
-      "color": "purple",
-      "id": 9
+      "id": 3,
+      "text": "ดูดวง",
+      "color": "red"
     }
   ],
   "data": [
@@ -265,22 +327,100 @@
       "id": 2
     },
     {
-      "id": 3
+      "id": 3,
+      "institute1": "",
+      "country1": "",
+      "yIn1": "",
+      "yout1": "",
+      "grade1": "",
+      "degree1": "",
+      "major1": "",
+      "name_dept1": "",
+      "institute2": "",
+      "country2": "",
+      "yIn2": "",
+      "yout2": "",
+      "grade2": "",
+      "degree2": "",
+      "major2": "",
+      "name_dept2": "",
+      "institute3": "",
+      "country3": "",
+      "yIn3": "",
+      "yout3": "",
+      "grade3": "",
+      "degree3": "",
+      "major3": "",
+      "name_dept3": "",
+      "institute4": "",
+      "country4": "",
+      "yIn4": "",
+      "yout4": "",
+      "grade4": "",
+      "degree4": "",
+      "major4": "",
+      "name_dept4": "",
+      "name_Level5": "",
+      "institute5": "",
+      "country5": "",
+      "yIn5": "",
+      "yout5": "",
+      "grade5": "",
+      "degree5": "",
+      "major5": "",
+      "name_dept5": "",
+      "name_level6": "",
+      "institute6": "",
+      "major6": "",
+      "name_dept6": "",
+      "yIn6": "",
+      "yout6": "",
+      "name_car": "",
+      "name_motorcycle": "",
+      "name_have": "",
+      "name_understanding1": "",
+      "name_speaking1": "",
+      "name_reading1": "",
+      "name_writing1": "",
+      "name_language2": "",
+      "name_understanding2": "",
+      "name_speaking2": "",
+      "name_reading2": "",
+      "name_writing2": "",
+      "com_program": [
+        {
+          "text": "Oracle Database",
+          "color": "purple",
+          "id": 4
+        }
+      ],
+      "hobbies": [
+        {
+          "id": 2,
+          "text": "internet",
+          "color": "blue"
+        }
+      ],
+      "sports": [
+        {
+          "id": 2,
+          "text": "ปิงปอง",
+          "color": "blue"
+        }
+      ],
+      "skill": [
+        {
+          "id": 2,
+          "text": "พิมพ์สัมผัส",
+          "color": "blue"
+        }
+      ]
     },
     {
       "id": 4
     },
     {
       "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
     }
   ]
 }

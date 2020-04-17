@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <div>
     <v-combobox
       v-model="model"
       :filter="filter"
@@ -51,11 +51,12 @@
         </v-list-item-action>
       </template>
     </v-combobox>
-  </v-container>
+  </div>
 </template>
 <script>
-export default { 
+export default {
   data: () => ({
+    listurl: process.env.VUE_APP_HB,
     activator: null,
     attach: null,
     colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
@@ -82,27 +83,29 @@ export default {
           };
 
           this.items.push(v);
-          let listurl = process.env.VUE_APP_HB;
-          axios.post(listurl, v);
-            
+          axios.post(this.listurl, v);
 
           this.nonce++;
         }
-
+        this.items = [];
+        this.getItem();
         return v;
       });
-      this.$parent.$parent.$parent.data.hobbies = this.model;
+      this.$parent.$parent.$parent.datain.hobbies = this.model;
     }
   },
 
   methods: {
-    edit(index, item) {
+    async edit(index, item) {
       if (!this.editing) {
         this.editing = item;
         this.index = index;
+        //this.items = [];
+        //this.getItem();
       } else {
         this.editing = null;
         this.index = -1;
+        axios.put(this.listurl+'/'+item.id, item);
       }
     },
     filter(item, queryText, itemText) {
@@ -121,13 +124,12 @@ export default {
       );
     },
     async getItem() {
-      let listurl = process.env.VUE_APP_HB;
       let res = await axios({
         method: "get",
-        url: listurl
+        url: this.listurl
       });
       this.items = res.data;
-      console.log(this.items);
+      // console.log(this.items);
     }
   },
   mounted() {

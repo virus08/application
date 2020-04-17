@@ -103,8 +103,8 @@
                 dense
                 chips
                 small-chips
-                label="คำนำหน้าชื่อ"
-                hint="อะไรไม่รุ"
+                label="คำนำหน้าชื่อ (TH)"
+                hint="SELECT your name prefix"
               />
             </v-container>
           </v-col>
@@ -144,9 +144,17 @@
         <v-row>
           <v-col cols="2" md="2">
             <v-container fluid>
-              <nameprefixeng />
+              <v-autocomplete
+                :items="lists[5].data"
+                outlined
+                dense
+                chips
+                small-chips
+                label="คำนำหน้าชื่อ (EN)"
+                hint="SELECT your name prefix "
+              />
             </v-container>
-          </v-col>  
+          </v-col>
           <v-col cols="5" md="3">
             <v-text-field
               v-model="datain.namee"
@@ -180,112 +188,113 @@
         </v-row>
         <v-row>
           <!-- ยังใช้งานไม่ได้ date brihtday -->
-          <v-col cols="4">
+          <v-col cols="3">
             <v-row>
-            <v-col cols="3">
-              <v-subheader>
-                วันเกิด
-                <br />Brith Date
-              </v-subheader>
-            </v-col>
-            <v-col cols="5">
-              <v-dialog
-                ref="dialog"
-                v-model="modal3"
-                :return-value.sync="date"
-                persistent
-                width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="date4"
-                    label="วัน/เดือน/ปี*"
-                    prepend-icon="mdi-calendar-multiple"
-                    readonly
-                    v-on="on"
-                    dense
-                    outlined
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="date4" scrollable>
-                  <v-spacer></v-spacer>
-                  <v-btn text color="primary" @click="modal4 = false">Cancel</v-btn>
-                  <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
-                </v-date-picker>
-              </v-dialog>
-            </v-col>
+              <v-col cols="5">
+                <v-subheader>
+                  วันเกิด
+                  <br />Brith Date
+                </v-subheader>
+              </v-col>
+              <v-col cols="7">
+                <v-dialog
+                  ref="dialog"
+                  v-model="modal3"
+                  :return-value.sync="date"
+                  persistent
+                  width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="date4"
+                      label="วัน/เดือน/ปี*"
+                      prepend-icon="mdi-calendar-multiple"
+                      readonly
+                      v-on="on"
+                      dense
+                      outlined
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker v-model="date4" scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="modal4 = false">Cancel</v-btn>
+                    <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                  </v-date-picker>
+                </v-dialog>
+              </v-col>
             </v-row>
           </v-col>
-          <v-col>
-            <v-subheader>
-              เพศ
-              <br />Sex
-            </v-subheader>
+          <v-col cols="2">
+            <v-row>
+              <v-col cols="3">
+                <v-subheader>
+                  เพศ
+                  <br />Sex
+                </v-subheader>
+              </v-col>
+              <v-col cols="9">
+                <v-select
+                  v-model="datain.sex"
+                  :rules="rules.sex"
+                  :items="['Male','Female']"
+                  label="Male/Female"
+                  dense
+                  solo
+                ></v-select>
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col>
-            <v-select
-              v-model="datain.sex"
-              :rules="rules.sex"
-              :items="['Male','Female']"
-              label="Male/Female"
-              dense
-              solo
-            ></v-select>
+          <v-col cols="2">
+            <v-row>
+              <v-col cols="3">
+                <v-subheader>
+                  อายุ
+                  <br />Age
+                </v-subheader>
+              </v-col>
+              <v-col cols="7">
+                <v-text-field
+                  v-model="datain.age"
+                  :rules="rules.age"
+                  label="อายุ/Age"
+                  hint="Age"
+                  dense
+                  outlined
+                ></v-text-field>
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col>
-            <v-subheader>
-              อายุ
-              <br />Age
-            </v-subheader>
+          <v-col cols="3">
+            <v-row>
+              <v-col cols="4">
+                <v-subheader>
+                  เชื้อชาติ
+                  <br />Citizen
+                </v-subheader>
+              </v-col>
+              <v-col cols="7">
+                <citizen />
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col>
-            <v-text-field
-              v-model="datain.age"
-              :rules="rules.age"
-              label="อายุ/Age"
-              hint="Age"
+          <v-col cols="2">
+            <v-row>
+              <v-col cols="5">
+                <v-subheader>
+                  สัญชาติ
+                  <br />Nationality
+                </v-subheader>
+              </v-col>
+              <v-col cols="7">
+               <v-text-field
+              v-model="datain.nationality"
+              :rules="rules.nationality"
+              label="สัญชาติ"
+              hint="Nationality"
               dense
               outlined
             ></v-text-field>
-          </v-col>
-          <v-col cols="3">
-            <v-row>
-            <v-col cols="3">
-              <v-subheader>
-                เชื้อชาติ
-                <br />Citizen
-              </v-subheader>
-            </v-col>
-            <v-col cols="9">
-              <v-text-field
-                v-model="datain.citizen"
-                :rules="rules.citizen"
-                label="เชื้อชาติ/Race*"
-                hint="Race"
-                dense
-                outlined
-              ></v-text-field>
-            </v-col>
-            </v-row>
-          </v-col>
-          <v-col cols="3">
-            <v-row>
-            <v-col cols="3">
-              <v-subheader>
-                สัญชาติ
-                <br />Nationality
-              </v-subheader>
-            </v-col>
-            <v-col cols="9">
-              <v-text-field
-                v-model="datain.nationality"
-                :rules="rules.nationality"
-                label="สัญชาติ/Nationality*"
-                hint="Nationality"
-                dense
-                outlined
-              ></v-text-field>
-            </v-col>
+              </v-col>
             </v-row>
           </v-col>
         </v-row>
@@ -300,6 +309,20 @@
               :rules="rules.religion"
               label="ศาสนา/Religion"
               hint="Religion"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+           <v-subheader>
+            สถานที่เกิด
+            <br />Place of brith*
+          </v-subheader>
+          <v-col cols="2" md="2">
+            <v-text-field
+              v-model="datain.pofb"
+              :rules="rules.pofb"
+              label="ระบุ.."
+              hint="Place of Brith"
               dense
               outlined
             ></v-text-field>
@@ -336,15 +359,15 @@
             กรุ๊ปเลือด
             <br />Blood Group
           </v-subheader>
-          <v-col cols="2" md="2">
+          <v-col cols="2" md="1">
             <v-autocomplete
               :items="lists[4].data"
               outlined
               dense
               chips
               small-chips
-              label="คำนำหน้าชื่อ"
-              hint="อะไรไม่รุ"
+              label="ระบุ"
+              hint="กรุ๊ปเลือด"
             />
           </v-col>
         </v-row>
@@ -1064,6 +1087,8 @@ import nameprefix from "@/components/nameprefix.vue";
 import nameprefixeng from "@/components/nameprefixeng.vue";
 import bloodgroup from "@/components/nameprefixeng.vue";
 import PictureInput from "vue-picture-input";
+import citizen from "@/components/citizen.vue";
+
 // import
 export default {
   props: ["thisid"],
@@ -1071,7 +1096,9 @@ export default {
     PictureInput,
     nameprefix,
     nameprefixeng,
-    bloodgroup
+    bloodgroup,
+    citizen,
+
   },
 
   data() {
@@ -1167,6 +1194,10 @@ export default {
           v => !!v || "Item is required",
           v => (v && v.length >= 2) || "Name must be more than 5 characters"
         ],
+         pr_addhh: [
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+        ],
         pr_soi: [
           v => !!v || "Item is required",
           v => (v && v.length >= 2) || "Name must be more than 5 characters"
@@ -1202,6 +1233,7 @@ export default {
       },
       datain: {
         img: null,
+        pofb: "",
         date: "",
         position: "",
         stratingdate: "",

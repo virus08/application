@@ -66,39 +66,43 @@
           </v-col>
           <v-col cols="1">ชื่อเล่น</v-col>
           <v-col cols="2">
-            <input align="left" class="txt" type="text" style="width:3cm" value="Jo" />
+            <input align="left" class="txt" type="text" style="width:3cm" :value="data.nickt" />
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="2">Name - Surname</v-col>
-          <v-col cols="10">
+          <v-col cols="1">Name - Surname</v-col>
+          <v-col cols="8">
             <input
               align="left"
               class="txt"
               type="text"
-              style="width:14.5cm"
+              style="width:11.5cm"
               :value="data.ne+' '+data.namee+' '+data.surnamee"
             />
+          </v-col>
+          <v-col cols="1">Nickname</v-col>
+          <v-col cols="2">
+            <input align="left" class="txt" type="text" style="width:3cm" :value="data.nickname" />
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="2">วันเกิด/ Birth Date</v-col>
           <v-col cols="7">
-            <input class="txt" type="text" style="width:9.5cm" value="1 มกราคม 2504" />
+            <input class="txt" type="text" style="width:9.5cm" :value="data.dofb" />
           </v-col>
           <v-col cols="1">อายุ</v-col>
           <v-col cols="2">
-            <input class="txt" type="text" style="width:2.4cm;padding-left:40px;" value="59" /> ปี
+            <input class="txt" type="text" style="width:2.4cm;padding-left:40px;" :value="data.age" /> ปี
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="3">สถานที่เกิด/ Place of birth</v-col>
           <v-col cols="7">
-            <input class="txt" type="text" style="width:10cm" value />
+            <input class="txt" type="text" style="width:10cm" :value="data.pofb" />
           </v-col>
           <v-col cols="1">เพศ</v-col>
           <v-col cols="1">
-            <input class="txt" type="text" style="width:1.5cm" value="ชาย" />
+            <input class="txt" type="text" style="width:1.5cm" :value="data.sex" />
           </v-col>
         </v-row>
         <br />
@@ -127,19 +131,19 @@
           </tr>
           <tr align="center">
             <td class="Type1">
-              <input class="txt" type="text" style="width:1cm" value="ไทย" />
+              <input class="txt" type="text" style="width:1cm" :value="data.nationality" />
             </td>
             <td class="Type1">
-              <input class="txt" type="text" style="width:1cm" value="ไทย" />
+              <input class="txt" type="text" style="width:1cm" :value="data.citizen" />
             </td>
             <td class="Type1">
-              <input class="txt" type="text" style="width:2cm" value />
+              <input class="txt" type="text" style="width:2cm" :value="data.religion" />
             </td>
             <td class="Type1">
-              <input class="txt" type="text" style="width:1cm" value="180" /> cm.
+              <input class="txt" type="text" style="width:1cm" :value="data.height" /> cm.
             </td>
             <td class="Type1">
-              <input class="txt" type="text" style="width:1cm" value="80" /> kg.
+              <input class="txt" type="text" style="width:1cm" :value="data.weigth" /> kg.
             </td>
           </tr>
         </table>
@@ -150,9 +154,9 @@
             <br />Present Address
           </v-col>
           <v-col cols="9">
-            <input class="txt" type="text" style="width:11.5cm" value="VST ECS" />
+            <input class="txt" type="text" style="width:11.5cm" :value="data.pr_add+' '+data.pr_addhh+' '+data.pr_soi+' '+data.pr_street" />
             <br />
-            <input class="txt" type="text" style="width:11.5cm" value />
+            <input class="txt" type="text" style="width:11.5cm" :value="data.pr_" />
           </v-col>
         </v-row>
         <v-row>

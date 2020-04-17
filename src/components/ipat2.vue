@@ -222,7 +222,13 @@
         </v-col>
       </v-form>
       <v-row>
-        <v-btn color="primary" :disabled="!valid" @click="save()">Continue</v-btn>
+        <v-spacer />
+        <v-col>
+          <v-btn color="primary" :disabled="!valid" @click="save()">Continue</v-btn>
+        </v-col>
+        <v-col>
+          <v-btn color="primary" @click="back()">Back</v-btn>
+        </v-col>
       </v-row>
     </v-container>
   </v-card>
@@ -272,6 +278,9 @@ export default {
   },
   methods: {
     async init() {},
+    back() {
+      this.$parent.$parent.$parent.e6 = 1;
+    },
     async save() {
       let urldata = process.env.VUE_APP_DATA;
       // console.log(urldata + "/" + this.thisid);

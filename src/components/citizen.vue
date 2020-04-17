@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="hardware"
+      label="Search for an option"
       multiple
       small-chips
       solo
@@ -56,7 +56,7 @@
 <script>
 export default {
   data: () => ({
-    listurl: process.env.VUE_APP_CP,
+    listurl: process.env.VUE_APP_CZ,
     activator: null,
     attach: null,
     colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
@@ -65,7 +65,7 @@ export default {
     items: [],
     nonce: 1,
     menu: false,
-    model: [],
+    model: [{"text":"ไทย/Thai","color":"blue","id":2}],
     x: 0,
     search: null,
     y: 0
@@ -84,14 +84,13 @@ export default {
 
           this.items.push(v);
           axios.post(this.listurl, v);
-
+          this.getItem();
           this.nonce++;
         }
-        this.items = [];
-        this.getItem();
+
         return v;
       });
-      this.$parent.$parent.$parent.datain.com_program = this.model;
+      this.$parent.$parent.$parent.data.citizen = this.model;
     }
   },
 
@@ -100,12 +99,11 @@ export default {
       if (!this.editing) {
         this.editing = item;
         this.index = index;
-        //this.items = [];
-        //this.getItem();
+        console.log("addnew");
       } else {
         this.editing = null;
         this.index = -1;
-        axios.put(this.listurl+'/'+item.id, item);
+        console.log("edit");
       }
     },
     filter(item, queryText, itemText) {

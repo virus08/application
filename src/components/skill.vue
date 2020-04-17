@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="hardware"
+      label="Search for an option"
       multiple
       small-chips
       solo
@@ -56,7 +56,7 @@
 <script>
 export default {
   data: () => ({
-    listurl: process.env.VUE_APP_CP,
+    listurl: process.env.VUE_APP_SK,
     activator: null,
     attach: null,
     colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
@@ -91,7 +91,7 @@ export default {
         this.getItem();
         return v;
       });
-      this.$parent.$parent.$parent.datain.com_program = this.model;
+      this.$parent.$parent.$parent.datain.skill = this.model;
     }
   },
 

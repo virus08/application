@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <div>
     <v-combobox
       v-model="model"
       :filter="filter"
@@ -7,7 +7,7 @@
       :items="items"
       :search-input.sync="search"
       hide-selected
-      label="Certificate"
+      label="certificate"
       multiple
       small-chips
       solo
@@ -15,13 +15,7 @@
       <template v-slot:no-data>
         <v-list-item>
           <span class="subheading">Create</span>
-          <v-chip
-            :color="`${colors[nonce - 1]} lighten-3`"
-            label
-            small
-          >
-            {{ search }}
-          </v-chip>
+          <v-chip :color="`${colors[nonce - 1]} lighten-3`" label small>{{ search }}</v-chip>
         </v-list-item>
       </template>
       <template v-slot:selection="{ attrs, item, parent, selected }">
@@ -33,13 +27,8 @@
           label
           small
         >
-          <span class="pr-1">
-            {{ item.text }}
-          </span>
-          <v-icon
-            small
-            @click="parent.selectItem(item)"
-          >mdi-close</v-icon>
+          <span class="pr-1">{{ item.text }}</span>
+          <v-icon small @click="parent.selectItem(item)">mdi-close</v-icon>
         </v-chip>
       </template>
       <template v-slot:item="{ index, item }">
@@ -53,99 +42,99 @@
           solo
           @keyup.enter="edit(index, item)"
         ></v-text-field>
-        <v-chip
-          v-else
-          :color="`${item.color} lighten-3`"
-          dark
-          label
-          small
-        >
-          {{ item.text }}
-        </v-chip>
+        <v-chip v-else :color="`${item.color} lighten-3`" dark label small>{{ item.text }}</v-chip>
         <v-spacer></v-spacer>
         <v-list-item-action @click.stop>
-          <v-btn
-            icon
-            @click.stop.prevent="edit(index, item)"
-          >
+          <v-btn icon @click.stop.prevent="edit(index, item)">
             <v-icon>{{ editing !== item ? 'mdi-pencil' : 'mdi-check' }}</v-icon>
           </v-btn>
         </v-list-item-action>
       </template>
     </v-combobox>
-  </v-container>
+  </div>
 </template>
 <script>
-  export default {
-    data: () => ({
-      activator: null,
-      attach: null,
-      colors: ['green', 'purple', 'indigo', 'cyan', 'teal', 'orange'],
-      editing: null,
-      index: -1,
-      items: [
-        { header: 'Select an option or create one' },
-        
-      ],
-      nonce: 1,
-      menu: false,
-      model: [
+export default {
+  data: () => ({
+    listurl: process.env.VUE_APP_CP,
+    activator: null,
+    attach: null,
+    colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
+    editing: null,
+    index: -1,
+    items: [],
+    nonce: 1,
+    menu: false,
+    model: [],
+    x: 0,
+    search: null,
+    y: 0
+  }),
 
-      ],
-      x: 0,
-      search: null,
-      y: 0,
-    }),
+  watch: {
+    model(val, prev) {
+      if (val.length === prev.length) return;
 
-    watch: {
-      model (val, prev) {
-        if (val.length === prev.length) return
+      this.model = val.map(v => {
+        if (typeof v === "string") {
+          v = {
+            text: v,
+            color: this.colors[this.nonce - 1]
+          };
 
-        this.model = val.map(v => {
-          if (typeof v === 'string') {
-            v = {
-              text: v,
-              color: this.colors[this.nonce - 1],
-            }
+          this.items.push(v);
+          axios.post(this.listurl, v);
 
-            this.items.push(v)
-
-            this.nonce++
-          }
-
-          return v
-        })
-        this.callupdate();
-      },
-    },
-
-    methods: {
-      callupdate(){
-        this.$parent.$parent.$parent.datain.certificate = this.model 
-      },
-      edit (index, item) {
-        if (!this.editing) {
-          this.editing = item
-          this.index = index
-        } else {
-          this.editing = null
-          this.index = -1
+          this.nonce++;
         }
-      },
-      filter (item, queryText, itemText) {
-        if (item.header) return false
+        this.items = [];
+        this.getItem();
+        return v;
+      });
+      this.$parent.$parent.$parent.datain.com_program = this.model;
+    }
+  },
 
-        const hasValue = val => val != null ? val : ''
+  methods: {
+    async edit(index, item) {
+      if (!this.editing) {
+        this.editing = item;
+        this.index = index;
+        //this.items = [];
+        //this.getItem();
+      } else {
+        this.editing = null;
+        this.index = -1;
+        axios.put(this.listurl+'/'+item.id, item);
+      }
+    },
+    filter(item, queryText, itemText) {
+      if (item.header) return false;
 
-        const text = hasValue(itemText)
-        const query = hasValue(queryText)
+      const hasValue = val => (val != null ? val : "");
 
-        return text.toString()
+      const text = hasValue(itemText);
+      const query = hasValue(queryText);
+
+      return (
+        text
+          .toString()
           .toLowerCase()
           .indexOf(query.toString().toLowerCase()) > -1
-      },
+      );
     },
+    async getItem() {
+      let res = await axios({
+        method: "get",
+        url: this.listurl
+      });
+      this.items = res.data;
+      // console.log(this.items);
+    }
+  },
+  mounted() {
+    this.getItem();
   }
+};
 </script>
-
 
