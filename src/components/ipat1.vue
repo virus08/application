@@ -5,9 +5,15 @@
         <v-chip
           class="ma-2"
         >ประวัติการทำงาน จากปัจจุบันไปหาอดีต / Employment record (List from present to last)</v-chip>
-        <v-radio-group row>
-          <v-radio label="ไม่มีประสบการณ์การทำงาน" dense outlined></v-radio>
-          <v-radio label="มีประสบการณ์การทำงาน (โปรดระบุ)" dense outlined></v-radio>
+       <v-radio-group >
+          <v-col>
+          <v-row>
+            <v-checkbox v-model="datain.experience" label="ไม่มีประสบการณ์การทำงาน" value="ไม่มีประสบการณ์การทำงาน"></v-checkbox>         
+          </v-row>
+          <v-row>
+            <v-checkbox v-model="datain.experience" label="มีประสบการณ์การทำงาน(โปรดระบุ)" value="Iมีประสบการณ์การทำงาน(โปรดระบุ)"></v-checkbox>       
+          </v-row>
+          </v-col>
         </v-radio-group>
         <v-chip class="ma-2">อันดับที่ 1/ No.1</v-chip>
         <v-row>
@@ -1097,8 +1103,8 @@
           </v-col>
           <v-col cols="4" md="4">
             <v-text-field
-              v-model="datain.institute1"
-              :rules="rules.institute1"
+              v-model="datain.institute2"
+              :rules="rules.institute2"
               label="Details"
               hint="Details"
               dense
@@ -1110,8 +1116,8 @@
           </v-subheader>
           <v-col cols="2" md="3">
             <v-text-field
-              v-model="datain.course1"
-              :rules="rules.course1"
+              v-model="datain.course2"
+              :rules="rules.course2"
               label="Details"
               hint="Details"
               dense
@@ -1216,7 +1222,7 @@
         <v-row>
           <v-col cols="2">
             <v-subheader>
-              <p class="font-weight-black">ชื่อ-สกุล/Name-Surname * </p>
+              <p class="font-weight-black">ชื่อ-สกุล/Name-Surname *</p>
             </v-subheader>
           </v-col>
           <v-col cols="5" md="5">
@@ -1260,12 +1266,12 @@
             ></v-text-field>
           </v-col>
           <v-subheader>
-            <p class="font-weight-black">โทรศัพท์/Telephone*</p>
+            <p class="font-weight-black">โทรศัพท์มือถือ<br />Mobile*</p>
           </v-subheader>
           <v-col cols="3" md="3">
             <v-text-field
-              v-model="datain.telephone"
-              :rules="rules.telephone"
+              v-model="datain.mobile"
+              :rules="rules.mobile"
               label="Details"
               hint="Details"
               dense
@@ -1311,13 +1317,13 @@
           <v-subheader>
             <p class="font-weight-black">
               โทรศัพท์
-              <br />elephone *
+              <br />Telephone *
             </p>
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-              v-model="datain.elephone"
-              :rules="rules.elephone"
+              v-model="datain.telephone"
+              :rules="rules.telephone"
               label="Details"
               hint="Details"
               dense
@@ -1335,21 +1341,17 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-radio-group row>
-            <v-radio label="ไม่เคย/ No " dense outlined></v-radio>
-            <v-radio label="เคย/ Yes" dense outlined></v-radio>
-          </v-radio-group>
+          <v-checkbox v-model="datain.no1" label="ไม่เคย/NO" value="ไม่เคย/NO"></v-checkbox>
+          <v-checkbox v-model="datain.yes1" label="เคย/Yes" value="เคย/Yes"></v-checkbox>
           <v-subheader>ระบุ/Explain</v-subheader>
-          <v-col cols="3" md="3">
-            <v-text-field
-              v-model="datain.explain1"
-              :rules="rules.explain1"
-              label="Details"
-              hint="Details"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
+          <v-text-field
+            v-model="datain.explain1"
+            :rules="rules.explain1"
+            label="Details"
+            hint="Details"
+            dense
+            outlined
+          ></v-text-field>
         </v-row>
         <v-row>
           <v-col cols="5">
@@ -1360,21 +1362,17 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-radio-group row>
-            <v-radio label="ไม่เคย/ No " dense outlined></v-radio>
-            <v-radio label="เคย/ Yes" dense outlined></v-radio>
-          </v-radio-group>
+          <v-checkbox v-model="datain.no2" label="ไม่เคย/NO" value="ไม่เคย/NO"></v-checkbox>
+          <v-checkbox v-model="datain.yes2" label="เคย/Yes" value="เคย/Yes"></v-checkbox>
           <v-subheader>ระบุ/Explain</v-subheader>
-          <v-col cols="3" md="3">
-            <v-text-field
-              v-model="datain.explain2"
-              :rules="rules.explain2"
-              label="Details"
-              hint="Details"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
+          <v-text-field
+            v-model="datain.explain2"
+            :rules="rules.explain2"
+            label="Details"
+            hint="Details"
+            dense
+            outlined
+          ></v-text-field>
         </v-row>
         <v-row>
           <v-col cols="5">
@@ -1385,21 +1383,17 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-radio-group row>
-            <v-radio label="ไม่เคย/ No " dense outlined></v-radio>
-            <v-radio label="เคย/ Yes" dense outlined></v-radio>
-          </v-radio-group>
+          <v-checkbox v-model="datain.no3" label="ไม่เคย/NO" value="ไม่เคย/NO"></v-checkbox>
+          <v-checkbox v-model="datain.yes3" label="เคย/Yes" value="เคย/Yes"></v-checkbox>
           <v-subheader>ระบุ/Explain</v-subheader>
-          <v-col cols="3" md="3">
-            <v-text-field
-              v-model="datain.explain3"
-              :rules="rules.explain3"
-              label="Details"
-              hint="Details"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
+          <v-text-field
+            v-model="datain.explain3"
+            :rules="rules.explain3"
+            label="Details"
+            hint="Details"
+            dense
+            outlined
+          ></v-text-field>
         </v-row>
         <v-row>
           <v-col cols="5">
@@ -1410,21 +1404,17 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-radio-group row>
-            <v-radio label="ได้/ Yes" dense outlined></v-radio>
-            <v-radio label="ไม่ได้/ No" dense outlined></v-radio>
-          </v-radio-group>
+          <v-checkbox v-model="datain.no4" label="ไม่ได้/NO" value="ไม่ได้/NO"></v-checkbox>
+          <v-checkbox v-model="datain.yes4" label="ได้/Yes" value="ได้/Yes"></v-checkbox>
           <v-subheader>เพราะ/ Because</v-subheader>
-          <v-col cols="3" md="3">
-            <v-text-field
-              v-model="datain.because"
-              :rules="rules.because"
-              label="Details"
-              hint="Details"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
+          <v-text-field
+            v-model="datain.because"
+            :rules="rules.because"
+            label="Details"
+            hint="Details"
+            dense
+            outlined
+          ></v-text-field>
         </v-row>
         <v-subheader>
           <p
@@ -1550,6 +1540,7 @@ export default {
         applicant_s_signature: [v => !!v || "applicant_s_signature is required"]
       },
       datain: {
+        experience:"",
         company_add1: "",
         type_of_business1: "",
         since1: "",
@@ -1630,9 +1621,17 @@ export default {
         relation1: "",
         address: "",
         telephone: "",
+        no1: "",
+        yes1: "",
         explain1: "",
+        no2: "",
+        yes2: "",
         explain2: "",
+        no3: "",
+        yes3: "",
         explain3: "",
+        no4: "",
+        yes4: "",
         because: "",
         name: "",
         department: "",

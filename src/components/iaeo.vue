@@ -9,7 +9,7 @@
         <v-row>
           <v-chip class="ma-5">ประถมศึกษา/Primary School</v-chip>
 
-          <v-col cols="3">
+          <v-col cols="4">
             <v-text-field
               v-model="datain.institute1"
               label="ชื่อสถานศึกษาและที่ตั้ง"
@@ -20,26 +20,26 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="1">
-            <v-text-field v-model="datain.country1" label="ประเทศ" hint="Country" dense outlined></v-text-field>
+          <v-col cols="2">
+            <v-text-field
+             v-model="datain.country1" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
           </v-col>
 
-          <v-subheader>ปีที่ศึกษา/Period</v-subheader>
-          <v-col cols="6" sm="2">
+          <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yIn1"
-              class="px-2"
-              label="จาก (ค.ศ.) / From (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yIn1" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
-          <v-col cols="6" sm="2">
+          <v-subheader> _ </v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yout1"
-              class="px-2"
-              label="ถึง (ค.ศ.) / To (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yout1" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
         </v-row>
 
@@ -86,7 +86,7 @@
         <v-row>
           <v-chip class="ma-5">มัธยมศึกษา/Secondary School</v-chip>
 
-          <v-col cols="3">
+          <v-col cols="4">
             <v-text-field
               v-model="datain.institute2"
               label="ชื่อสถานศึกษาและที่ตั้ง"
@@ -97,28 +97,29 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="1">
-            <v-text-field v-model="datain.country2" label="ประเทศ" hint="Country" dense outlined></v-text-field>
+          <v-col cols="2">
+            <v-text-field
+             v-model="datain.country2" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
           </v-col>
 
-          <v-subheader>ปีที่ศึกษา/Period</v-subheader>
-          <v-col cols="6" sm="2">
+          <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yIn2"
-              class="px-2"
-              label="จาก (ค.ศ.) / From (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yIn2" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
-          <v-col cols="6" sm="2">
+          <v-subheader> _ </v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yout2"
-              class="px-2"
-              label="ถึง (ค.ศ.) / To (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yout2" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
         </v-row>
+
 
         <v-row>
           <v-subheader>
@@ -126,7 +127,10 @@
             <br />G.P.A
           </v-subheader>
           <v-col cols="2">
-            <v-text-field v-model="datain.grade2" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
+            <v-text-field 
+            v-model="datain.grade2" 
+            label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined
+            ></v-text-field>
           </v-col>
 
           <v-subheader>
@@ -163,7 +167,7 @@
         <v-row>
           <v-chip class="ma-5">ปริญญาตรี/Bachelor's Degree</v-chip>
 
-          <v-col cols="3">
+          <v-col cols="4">
             <v-text-field
               v-model="datain.institute3"
               label="ชื่อสถานศึกษาและที่ตั้ง"
@@ -174,26 +178,26 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="1">
-            <v-text-field v-model="datain.country3" label="ประเทศ" hint="Country" dense outlined></v-text-field>
+         <v-col cols="2">
+            <v-text-field
+             v-model="datain.country3" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
           </v-col>
 
-          <v-subheader>ปีที่ศึกษา/Period</v-subheader>
-          <v-col cols="6" sm="2">
+           <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yIn3"
-              class="px-2"
-              label="จาก (ค.ศ.) / From (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yIn3" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
-          <v-col cols="6" sm="2">
+          <v-subheader> _ </v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yout3"
-              class="px-2"
-              label="ถึง (ค.ศ.) / To (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yout3" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
         </v-row>
 
@@ -240,7 +244,7 @@
         <v-row>
           <v-chip class="ma-5">ปริญญาโท/Master's Degree</v-chip>
 
-          <v-col cols="3">
+          <v-col cols="4">
             <v-text-field
               v-model="datain.institute4"
               label="ชื่อสถานศึกษาและที่ตั้ง"
@@ -251,28 +255,29 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="1">
-            <v-text-field v-model="datain.country4" label="ประเทศ" hint="Country" dense outlined></v-text-field>
+          <v-col cols="2">
+            <v-text-field
+             v-model="datain.country4" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
           </v-col>
 
-          <v-subheader>ปีที่ศึกษา/Period</v-subheader>
-          <v-col cols="6" sm="2">
+          <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yIn4"
-              class="px-2"
-              label="จาก (ค.ศ.) / From (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yIn4" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
-          <v-col cols="6" sm="2">
+          <v-subheader> _ </v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yout4"
-              class="px-2"
-              label="ถึง (ค.ศ.) / To (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yout4" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
         </v-row>
+
 
         <v-row>
           <v-subheader>
@@ -338,29 +343,26 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="2">
-            <v-text-field v-model="datain.country5" label="ประเทศ" hint="Country" dense outlined></v-text-field>
+         <v-col cols="2">
+            <v-text-field
+             v-model="datain.country5" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
           </v-col>
 
-          <v-subheader>
-            ปีที่จบ
-            <br />Period
-          </v-subheader>
-          <v-col cols="6" sm="1">
+           <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yIn5"
-              class="px-2"
-              label="จาก (ค.ศ.) / From (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yIn5" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
-          <v-col cols="6" sm="1">
+          <v-subheader> _ </v-subheader>
+           <v-col cols="1">
             <v-text-field
-              v-model="datain.yout5"
-              class="px-2"
-              label="ถึง (ค.ศ.) / To (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yout5" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
         </v-row>
 
@@ -406,7 +408,7 @@
 
         <v-row>
           <v-col cols="4">
-            <v-checkbox v-model="checkbox" label="`ปัจจุบันศึกษาต่อ/ Studying `"></v-checkbox>
+            <v-checkbox v-model="datain.name_studying" label="ปัจจุบันศึกษาต่อ/ Studying"></v-checkbox>
           </v-col>
         </v-row>
 
@@ -417,7 +419,7 @@
           </v-subheader>
           <v-col cols="4">
             <v-autocomplete
-              v-model="datain.name_Level5"
+              v-model="datain.name_Level6"
               :items="lists[0].data"
               outlined
               dense
@@ -465,21 +467,18 @@
             ปีที่จบ
             <br />Year to Graduate
           </v-subheader>
-          <v-col cols="3" sm="2">
+          <v-col cols="2">
             <v-text-field
-              v-model="datain.yIn6"
-              class="px-2"
-              label="ปีที่เริ่มการศึกษา (ค.ศ.) / Start Year (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yIn6" 
+             label="ปีที่เริ่มการศึกษา (ค.ศ.)" hint="Start Year (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
-          <v-col cols="3" sm="2">
+          <v-subheader> _ </v-subheader>
+           <v-col cols="2">
             <v-text-field
-              v-model="datain.yout6"
-              class="px-2"
-              label="ปีที่คาดว่าจะจบ (ค.ศ.) / Expected year (A.D.)"
-              type="number"
-            ></v-text-field>
+             v-model="datain.yout6" 
+             label="ปีที่คาดว่าจะจบ (ค.ศ.) " hint="Expected year (A.D.)" dense outlined
+             ></v-text-field>
           </v-col>
         </v-row>
 
@@ -789,6 +788,7 @@ export default {
       name_dept6: "",
       yIn6: "",
       yout6: "",
+      name_studying: "",
       name_car: "",
       name_motorcycle: "",
       name_have: "",

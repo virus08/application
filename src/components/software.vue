@@ -56,7 +56,7 @@
 <script>
 export default {
   data: () => ({
-    listurl: process.env.VUE_APP_CP,
+    listurl: process.env.VUE_APP_SW,
     activator: null,
     attach: null,
     colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
@@ -91,7 +91,7 @@ export default {
         this.getItem();
         return v;
       });
-      this.$parent.$parent.$parent.datain.com_program = this.model;
+      this.$parent.$parent.$parent.datain.software = this.model;
     }
   },
 

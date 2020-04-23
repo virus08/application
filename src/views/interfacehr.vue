@@ -6,7 +6,7 @@
           <v-toolbar-title>My CRUD</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
+          <v-dialog v-model="dialog" max-width="1000px">
             <v-card>
               <v-toolbar flat color="primary" dark>
                 <v-toolbar-title>User Profile</v-toolbar-title>
@@ -25,7 +25,7 @@
                 <v-tab-item>
                   <v-card flat>
                     <v-card-text>
-                      <p>1</p>
+                      <neung :thisid="thisid" />
                     </v-card-text>
                   </v-card>
                 </v-tab-item>
@@ -72,14 +72,17 @@
 <script>
 import fromview from "@/views/appform.vue";
 import html2pdf from "html2pdf.js";
+import neung from "@/components/neung.vue";
 
 export default {
    components: {
+    neung,
     fromview
   },  
   data: () => ({
     dialog: false,
     printa: false,
+    thisid:null,
     headers: [
       {
         text: "Empolyee ID",
@@ -158,6 +161,8 @@ export default {
       this.editedIndex = this.desserts.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
+      console.log
+      this.thisid = item.id;
     },
 
     async deleteItem(item) {

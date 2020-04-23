@@ -198,13 +198,13 @@
         <v-radio-group >
           <v-col>
           <v-row>
-          <v-radio label=" My life in next 5 years" dense outlined></v-radio>
+            <v-checkbox v-model="datain.english_writing" label="My life in next 5 years" value="My life in next 5 years"></v-checkbox>         
           </v-row>
           <v-row>
-          <v-radio label=" If I could turn back time" dense outlined></v-radio>
+            <v-checkbox v-model="datain.english_writing" label="If I could turn back time" value="If I could turn back time"></v-checkbox>       
           </v-row>
-          <v-row>
-          <v-radio label=" My dream boss" dense outlined></v-radio>
+          <v-row> 
+            <v-checkbox v-model="datain.english_writing" label="My dream boss" value="My dream boss"></v-checkbox>
           </v-row>
           </v-col>
         </v-radio-group>
@@ -272,6 +272,7 @@ export default {
         details12: "",
         details13: "",
         details14: "",
+        english_writing:"",
         details15: ""
       }
     };
