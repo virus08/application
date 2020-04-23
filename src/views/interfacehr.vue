@@ -6,7 +6,7 @@
           <v-toolbar-title>My CRUD</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="1000px">
+          <v-dialog v-model="dialog" max-width="1080px">
             <v-card>
               <v-toolbar flat color="primary" dark>
                 <v-toolbar-title>User Profile</v-toolbar-title>
@@ -25,7 +25,7 @@
                 <v-tab-item>
                   <v-card flat>
                     <v-card-text>
-                      <neung :thisid="thisid" />
+                      <editpersonal :thisid="thisid" />
                     </v-card-text>
                   </v-card>
                 </v-tab-item>
@@ -72,11 +72,11 @@
 <script>
 import fromview from "@/views/appform.vue";
 import html2pdf from "html2pdf.js";
-import neung from "@/components/neung.vue";
+import editpersonal from "@/components/editpersonal.vue";
 
 export default {
    components: {
-    neung,
+    editpersonal,
     fromview
   },  
   data: () => ({
