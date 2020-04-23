@@ -1,51 +1,51 @@
 <template>
   <div>
+    <v-dialog v-model="dialog" max-width="1080px">
+      <v-card>
+        <v-toolbar flat color="primary" dark>
+          <v-toolbar-title>User Profile</v-toolbar-title>
+        </v-toolbar>
+        <v-tabs vertical>
+          <v-tab>
+            <v-icon left>mdi-account</v-icon>Personal Data
+          </v-tab>
+          <v-tab>
+            <v-icon left>mdi-lock</v-icon>Option 2
+          </v-tab>
+          <v-tab>
+            <v-icon left>mdi-access-point</v-icon>Option 3
+          </v-tab>
+
+          <v-tab-item>
+            <v-card flat>
+              <v-card-text>
+                <editpersonal :datain="sitem" />
+              </v-card-text>
+            </v-card>
+          </v-tab-item> 
+          <v-tab-item>
+            <v-card flat>
+              <v-card-text>
+                <editeducation :datain="sitem" />
+              </v-card-text>
+            </v-card>
+          </v-tab-item>
+          <v-tab-item>
+            <v-card flat>
+              <v-card-text>
+                <p>3</p>
+              </v-card-text>
+            </v-card>
+          </v-tab-item>
+        </v-tabs>
+      </v-card>
+    </v-dialog>
     <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
       <template v-slot:top>
         <v-toolbar flat color="white">
           <v-toolbar-title>My CRUD</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="1080px">
-            <v-card>
-              <v-toolbar flat color="primary" dark>
-                <v-toolbar-title>User Profile</v-toolbar-title>
-              </v-toolbar>
-              <v-tabs vertical>
-                <v-tab>
-                  <v-icon left>mdi-account</v-icon>Personal Data
-                </v-tab>
-                <v-tab>
-                  <v-icon left>mdi-lock</v-icon>Option 2
-                </v-tab>
-                <v-tab>
-                  <v-icon left>mdi-access-point</v-icon>Option 3
-                </v-tab>
-
-                <v-tab-item>
-                  <v-card flat>
-                    <v-card-text>
-                      <editpersonal :thisid="thisid" />
-                    </v-card-text>
-                  </v-card>
-                </v-tab-item>
-                <v-tab-item>
-                  <v-card flat>
-                    <v-card-text>
-                      <p>2</p>
-                    </v-card-text>
-                  </v-card>
-                </v-tab-item>
-                <v-tab-item>
-                  <v-card flat>
-                    <v-card-text>
-                      <p>3</p>
-                    </v-card-text>
-                  </v-card>
-                </v-tab-item>
-              </v-tabs>
-            </v-card>
-          </v-dialog>
         </v-toolbar>
       </template>
       <template v-slot:item.Name="{ item }">{{item.nt+' '+ item.namet+' ' + item.surnamet}}</template>
@@ -73,16 +73,17 @@
 import fromview from "@/views/appform.vue";
 import html2pdf from "html2pdf.js";
 import editpersonal from "@/components/editpersonal.vue";
-
+import editeducation from "@/components/editeducation.vue";
 export default {
-   components: {
+  components: {
     editpersonal,
     fromview
-  },  
+  },
   data: () => ({
+    sitem: null,
     dialog: false,
     printa: false,
-    thisid:null,
+    thisid: null,
     headers: [
       {
         text: "Empolyee ID",
@@ -158,11 +159,10 @@ export default {
       });
     },
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
+      //  console.log (item)
+      this.sitem = item;
       this.dialog = true;
-      console.log
-      this.thisid = item.id;
+      //this.getitem();
     },
 
     async deleteItem(item) {
