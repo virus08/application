@@ -9,7 +9,333 @@
         <v-row>
           <v-chip class="ma-5">ประถมศึกษา/Primary School</v-chip>
 
+          <v-col cols="4.5">
+            <v-text-field
+              v-model="datain.institute1"
+              label="ชื่อสถานศึกษาและที่ตั้ง"
+              prepend-inner-icon="mdi-city"
+              hint="Name of Institution/Location"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
           <v-col cols="4">
+            <v-text-field
+             v-model="datain.country1" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-subheader class="ma-1" >ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yIn1" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+          <v-subheader> _ </v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yout1" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คะแนนเฉลี่ย
+            <br />G.P.A
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.grade1" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
+          </v-col>
+          </v-row>
+
+          <v-row>
+          <v-subheader>
+            วุฒิการศึกษา
+            <br />Degree/Cert.
+          </v-subheader>
+          <v-col cols="2.5">
+            <v-text-field
+              v-model="datain.degree1"
+              label="วุฒิการศึกษา"
+              hint="Degree/Cert."
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            วิชาเอก
+            <br />Major
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.major1" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คณะ
+            <br />Dept.
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.name_dept1" label="คณะ" hint="Dept." dense outlined></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-chip class="ma-5">มัธยมศึกษา/Secondary School</v-chip>
+
+          <v-col cols="4.5">
+            <v-text-field
+              v-model="datain.institute1"
+              label="ชื่อสถานศึกษาและที่ตั้ง"
+              prepend-inner-icon="mdi-city"
+              hint="Name of Institution/Location"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="4">
+            <v-text-field
+             v-model="datain.country1" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-subheader class="ma-1" >ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yIn1" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+          <v-subheader> _ </v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yout1" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คะแนนเฉลี่ย
+            <br />G.P.A
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.grade1" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
+          </v-col>
+          </v-row>
+
+          <v-row>
+          <v-subheader>
+            วุฒิการศึกษา
+            <br />Degree/Cert.
+          </v-subheader>
+          <v-col cols="2.5">
+            <v-text-field
+              v-model="datain.degree1"
+              label="วุฒิการศึกษา"
+              hint="Degree/Cert."
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            วิชาเอก
+            <br />Major
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.major1" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คณะ
+            <br />Dept.
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.name_dept1" label="คณะ" hint="Dept." dense outlined></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-chip class="ma-5">ปริญญาตรี/Bachelor's Degree</v-chip>
+
+          <v-col cols="4.5">
+            <v-text-field
+              v-model="datain.institute1"
+              label="ชื่อสถานศึกษาและที่ตั้ง"
+              prepend-inner-icon="mdi-city"
+              hint="Name of Institution/Location"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="4">
+            <v-text-field
+             v-model="datain.country1" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-subheader class="ma-1" >ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yIn1" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+          <v-subheader> _ </v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yout1" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คะแนนเฉลี่ย
+            <br />G.P.A
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.grade1" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
+          </v-col>
+          </v-row>
+
+          <v-row>
+          <v-subheader>
+            วุฒิการศึกษา
+            <br />Degree/Cert.
+          </v-subheader>
+          <v-col cols="2.5">
+            <v-text-field
+              v-model="datain.degree1"
+              label="วุฒิการศึกษา"
+              hint="Degree/Cert."
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            วิชาเอก
+            <br />Major
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.major1" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คณะ
+            <br />Dept.
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.name_dept1" label="คณะ" hint="Dept." dense outlined></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-chip class="ma-5">ปริญญาโท/Master's Degree</v-chip>
+
+          <v-col cols="4.5">
+            <v-text-field
+              v-model="datain.institute1"
+              label="ชื่อสถานศึกษาและที่ตั้ง"
+              prepend-inner-icon="mdi-city"
+              hint="Name of Institution/Location"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="4">
+            <v-text-field
+             v-model="datain.country1" 
+             label="ประเทศ" hint="Country" dense outlined
+             ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-subheader class="ma-1" >ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yIn1" 
+             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+          <v-subheader> _ </v-subheader>
+           <v-col cols="2.5">
+            <v-text-field
+             v-model="datain.yout1" 
+             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
+             ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คะแนนเฉลี่ย
+            <br />G.P.A
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.grade1" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
+          </v-col>
+          </v-row>
+
+          <v-row>
+          <v-subheader>
+            วุฒิการศึกษา
+            <br />Degree/Cert.
+          </v-subheader>
+          <v-col cols="2.5">
+            <v-text-field
+              v-model="datain.degree1"
+              label="วุฒิการศึกษา"
+              hint="Degree/Cert."
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            วิชาเอก
+            <br />Major
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.major1" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
+          </v-col>
+
+          <v-subheader>
+            คณะ
+            <br />Dept.
+          </v-subheader>
+          <v-col cols="3">
+            <v-text-field v-model="datain.name_dept1" label="คณะ" hint="Dept." dense outlined></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-chip class="ma-5">อื่นๆ/Others</v-chip>
+
+          <v-col cols="3">
+            <v-text-field
+              v-model="datain.name_Level5"
+              label="ระดับการศึกษา"
+              hint="Level"
+              dense
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="4.5">
             <v-text-field
               v-model="datain.institute1"
               label="ชื่อสถานศึกษาและที่ตั้ง"
@@ -26,37 +352,39 @@
              label="ประเทศ" hint="Country" dense outlined
              ></v-text-field>
           </v-col>
+        </v-row>
 
-          <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
-           <v-col cols="1">
+        <v-row>
+          <v-subheader class="ma-1" >ปีที่ศึกษา<br />Period</v-subheader>
+           <v-col cols="2.5">
             <v-text-field
              v-model="datain.yIn1" 
              label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
              ></v-text-field>
           </v-col>
           <v-subheader> _ </v-subheader>
-           <v-col cols="1">
+           <v-col cols="2.5">
             <v-text-field
              v-model="datain.yout1" 
              label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
              ></v-text-field>
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-subheader>
             คะแนนเฉลี่ย
             <br />G.P.A
           </v-subheader>
-          <v-col cols="2">
+          <v-col cols="3">
             <v-text-field v-model="datain.grade1" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
           </v-col>
+          </v-row>
 
+          <v-row>
           <v-subheader>
             วุฒิการศึกษา
             <br />Degree/Cert.
           </v-subheader>
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-text-field
               v-model="datain.degree1"
               label="วุฒิการศึกษา"
@@ -70,7 +398,7 @@
             วิชาเอก
             <br />Major
           </v-subheader>
-          <v-col cols="2">
+          <v-col cols="3">
             <v-text-field v-model="datain.major1" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
           </v-col>
 
@@ -78,331 +406,8 @@
             คณะ
             <br />Dept.
           </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.name_dept1" label="คณะ" hint="Dept." dense outlined></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-chip class="ma-5">มัธยมศึกษา/Secondary School</v-chip>
-
-          <v-col cols="4">
-            <v-text-field
-              v-model="datain.institute2"
-              label="ชื่อสถานศึกษาและที่ตั้ง"
-              prepend-inner-icon="mdi-city"
-              hint="Name of Institution/Location"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-col cols="2">
-            <v-text-field
-             v-model="datain.country2" 
-             label="ประเทศ" hint="Country" dense outlined
-             ></v-text-field>
-          </v-col>
-
-          <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yIn2" 
-             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-          <v-subheader> _ </v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yout2" 
-             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-        </v-row>
-
-
-        <v-row>
-          <v-subheader>
-            คะแนนเฉลี่ย
-            <br />G.P.A
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field 
-            v-model="datain.grade2" 
-            label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วุฒิการศึกษา
-            <br />Degree/Cert.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field
-              v-model="datain.degree2"
-              label="วุฒิการศึกษา"
-              hint="Degree/Cert."
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วิชาเอก
-            <br />Major
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.major2" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            คณะ
-            <br />Dept.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.name_dept2" label="คณะ" hint="Dept." dense outlined></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-chip class="ma-5">ปริญญาตรี/Bachelor's Degree</v-chip>
-
-          <v-col cols="4">
-            <v-text-field
-              v-model="datain.institute3"
-              label="ชื่อสถานศึกษาและที่ตั้ง"
-              prepend-inner-icon="mdi-city"
-              hint="Name of Institution/Location"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-         <v-col cols="2">
-            <v-text-field
-             v-model="datain.country3" 
-             label="ประเทศ" hint="Country" dense outlined
-             ></v-text-field>
-          </v-col>
-
-           <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yIn3" 
-             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-          <v-subheader> _ </v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yout3" 
-             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-subheader>
-            คะแนนเฉลี่ย
-            <br />G.P.A
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.grade3" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วุฒิการศึกษา
-            <br />Degree/Cert.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field
-              v-model="datain.degree3"
-              label="วุฒิการศึกษา"
-              hint="Degree/Cert."
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วิชาเอก
-            <br />Major
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.major3" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            คณะ
-            <br />Dept.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.name_dept3" label="คณะ" hint="Dept." dense outlined></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-chip class="ma-5">ปริญญาโท/Master's Degree</v-chip>
-
-          <v-col cols="4">
-            <v-text-field
-              v-model="datain.institute4"
-              label="ชื่อสถานศึกษาและที่ตั้ง"
-              prepend-inner-icon="mdi-city"
-              hint="Name of Institution/Location"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-col cols="2">
-            <v-text-field
-             v-model="datain.country4" 
-             label="ประเทศ" hint="Country" dense outlined
-             ></v-text-field>
-          </v-col>
-
-          <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yIn4" 
-             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-          <v-subheader> _ </v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yout4" 
-             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-        </v-row>
-
-
-        <v-row>
-          <v-subheader>
-            คะแนนเฉลี่ย
-            <br />G.P.A
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.grade4" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วุฒิการศึกษา
-            <br />Degree/Cert.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field
-              v-model="datain.degree4"
-              label="วุฒิการศึกษา"
-              hint="Degree/Cert."
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วิชาเอก
-            <br />Major
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.major4" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            คณะ
-            <br />Dept.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.name_dept4" label="คณะ" hint="Dept." dense outlined></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-chip class="ma-5">อื่นๆ/Others</v-chip>
-
-          <v-col cols="2">
-            <v-text-field
-              v-model="datain.name_Level5"
-              label="ระดับการศึกษา"
-              hint="Level"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
           <v-col cols="3">
-            <v-text-field
-              v-model="datain.institute5"
-              label="ชื่อสถานศึกษาและที่ตั้ง"
-              prepend-inner-icon="mdi-city"
-              hint="Name of Institution/Location"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-         <v-col cols="2">
-            <v-text-field
-             v-model="datain.country5" 
-             label="ประเทศ" hint="Country" dense outlined
-             ></v-text-field>
-          </v-col>
-
-           <v-subheader>ปีที่ศึกษา<br />Period</v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yIn5" 
-             label="จาก (ค.ศ.)" hint="From (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-          <v-subheader> _ </v-subheader>
-           <v-col cols="1">
-            <v-text-field
-             v-model="datain.yout5" 
-             label="ถึง (ค.ศ.)" hint="To (A.D.)" dense outlined
-             ></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-subheader>
-            คะแนนเฉลี่ย
-            <br />G.P.A
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.grade5" label="คะแนนเฉลี่ย" hint="G.P.A" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วุฒิการศึกษา
-            <br />Degree/Cert.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field
-              v-model="datain.degree5"
-              label="วุฒิการศึกษา"
-              hint="Degree/Cert."
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            วิชาเอก
-            <br />Major
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.major5" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
-          </v-col>
-
-          <v-subheader>
-            คณะ
-            <br />Dept.
-          </v-subheader>
-          <v-col cols="2">
-            <v-text-field v-model="datain.name_dept5" label="คณะ" hint="Dept." dense outlined></v-text-field>
+            <v-text-field v-model="datain.name_dept1" label="คณะ" hint="Dept." dense outlined></v-text-field>
           </v-col>
         </v-row>
 
@@ -417,7 +422,7 @@
             ระดับการศึกษา
             <br />Level
           </v-subheader>
-          <v-col cols="4">
+          <v-col cols="3">
             <v-autocomplete
               v-model="datain.name_Level6"
               :items="lists[0].data"
@@ -435,7 +440,7 @@
             ศึกษาต่ออยู่ที่
             <br />Institute
           </v-subheader>
-          <v-col cols="4">
+          <v-col cols="2.5">
             <v-text-field
               v-model="datain.institute6"
               label="ศึกษาต่ออยู่ที่"
@@ -444,9 +449,7 @@
               outlined
             ></v-text-field>
           </v-col>
-        </v-row>
-
-        <v-row>
+        
           <v-subheader>
             วิชาเอก
             <br />Major
@@ -454,12 +457,14 @@
           <v-col cols="2">
             <v-text-field v-model="datain.major6" label="วิชาเอก" hint="Major" dense outlined></v-text-field>
           </v-col>
+          </v-row>
 
+          <v-row>
           <v-subheader>
             คณะ
             <br />Dept.
           </v-subheader>
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-text-field v-model="datain.name_dept6" label="คณะ" hint="Dept." dense outlined></v-text-field>
           </v-col>
 
@@ -467,14 +472,14 @@
             ปีที่จบ
             <br />Year to Graduate
           </v-subheader>
-          <v-col cols="2">
+          <v-col cols="3">
             <v-text-field
              v-model="datain.yIn6" 
              label="ปีที่เริ่มการศึกษา (ค.ศ.)" hint="Start Year (A.D.)" dense outlined
              ></v-text-field>
           </v-col>
           <v-subheader> _ </v-subheader>
-           <v-col cols="2">
+           <v-col cols="3">
             <v-text-field
              v-model="datain.yout6" 
              label="ปีที่คาดว่าจะจบ (ค.ศ.) " hint="Expected year (A.D.)" dense outlined
@@ -487,7 +492,7 @@
         </v-row>
 
         <v-row>
-          <v-col cols="2" sm="6" md="6">
+          <v-col cols="2" sm="6" md="7">
             <v-container fluid>
               <hobbies />
             </v-container>
@@ -499,7 +504,7 @@
         </v-row>
 
         <v-row>
-          <v-col cols="2" sm="6" md="6">
+          <v-col cols="2" sm="6" md="7">
             <v-container fluid>
               <sports />
             </v-container>
@@ -511,17 +516,17 @@
         </v-row>
 
         <v-row>
-          <v-col cols="12" sm="2">
+          <v-col cols="12" sm="3">
             <v-checkbox v-model="datain.name_car" label="รถยนต์/Car" value="รถยนต์/Car"></v-checkbox>
           </v-col>
-          <v-col cols="12" sm="3">
+          <v-col cols="12" sm="4">
             <v-checkbox
               v-model="datain.name_motorcycle"
               label="รถจักรยานยนต์ / Motorcycle"
               value="รถจักรยานยนต์ / Motorcycle"
             ></v-checkbox>
           </v-col>
-          <v-col cols="12" sm="3">
+          <v-col cols="12" sm="4">
             <v-checkbox
               v-model="datain.name_have"
               label="ไม่มี / Don't have"
@@ -539,7 +544,7 @@
         </v-row>
 
         <v-row>
-        <v-col cols="2" sm="6" md="6">
+        <v-col cols="2" sm="6" md="7">
             <v-container fluid>
               <skill />
             </v-container>
@@ -578,7 +583,7 @@
         </v-row>
         <v-row>
           <v-subheader>อังกฤษ / English</v-subheader>
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_understanding1"
               :items="lists[1].data"
@@ -592,7 +597,7 @@
             ></v-autocomplete>
           </v-col>
 
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_speaking1"
               :items="lists[1].data"
@@ -606,7 +611,7 @@
             ></v-autocomplete>
           </v-col>
 
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_reading1"
               :items="lists[1].data"
@@ -620,7 +625,7 @@
             ></v-autocomplete>
           </v-col>
 
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_writing1"
               :items="lists[1].data"
@@ -641,7 +646,7 @@
 
         <v-row>
           <v-subheader>ภาษา/ Language</v-subheader>
-          <v-col cols="1">
+          <v-col cols="2">
             <v-text-field
               v-model="datain.name_language2"
               label="ภาษา"

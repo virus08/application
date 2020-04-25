@@ -578,7 +578,7 @@
         </v-row>
         <v-row>
           <v-subheader>อังกฤษ / English</v-subheader>
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_understanding1"
               :items="lists[1].data"
@@ -592,7 +592,7 @@
             ></v-autocomplete>
           </v-col>
 
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_speaking1"
               :items="lists[1].data"
@@ -606,7 +606,7 @@
             ></v-autocomplete>
           </v-col>
 
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_reading1"
               :items="lists[1].data"
@@ -620,7 +620,7 @@
             ></v-autocomplete>
           </v-col>
 
-          <v-col cols="2">
+          <v-col cols="2.5">
             <v-autocomplete
               v-model="datain.name_writing1"
               :items="lists[1].data"
@@ -641,14 +641,10 @@
 
         <v-row>
           <v-subheader>ภาษา/ Language</v-subheader>
-          <v-col cols="1">
-            <v-text-field
-              v-model="datain.name_language2"
-              label="ภาษา"
-              hint="Language"
-              dense
-              outlined
-            ></v-text-field>
+          
+           <v-col cols="2.5">
+            <v-text-field v-model="datain.name_dept2" 
+            label="ภาษา" hint="Language" dense outlined></v-text-field>
           </v-col>
 
           <v-col cols="2">

@@ -7,13 +7,16 @@
         </v-toolbar>
         <v-tabs vertical>
           <v-tab>
-            <v-icon left>mdi-account</v-icon>Personal Data
+            <v-icon left>mdi-account-edit</v-icon>Personal Data
           </v-tab>
           <v-tab>
-            <v-icon left>mdi-lock</v-icon>Option 2
+            <v-icon left>mdi-school</v-icon>Education Data
           </v-tab>
           <v-tab>
-            <v-icon left>mdi-access-point</v-icon>Option 3
+            <v-icon left>mdi-treasure-chest</v-icon>Employment
+          </v-tab>
+          <v-tab>
+            <v-icon left>mdi-access-point</v-icon>popsu
           </v-tab>
 
           <v-tab-item>
@@ -22,7 +25,7 @@
                 <editpersonal :datain="sitem" />
               </v-card-text>
             </v-card>
-          </v-tab-item> 
+          </v-tab-item>
           <v-tab-item>
             <v-card flat>
               <v-card-text>
@@ -33,7 +36,14 @@
           <v-tab-item>
             <v-card flat>
               <v-card-text>
-                <p>3</p>
+                <editemployment :datain="sitem" />
+              </v-card-text>
+            </v-card>
+          </v-tab-item>
+          <v-tab-item>
+            <v-card flat>
+              <v-card-text>
+                <editpopsu :datain="sitem" />
               </v-card-text>
             </v-card>
           </v-tab-item>
@@ -74,9 +84,14 @@ import fromview from "@/views/appform.vue";
 import html2pdf from "html2pdf.js";
 import editpersonal from "@/components/editpersonal.vue";
 import editeducation from "@/components/editeducation.vue";
+import editemployment from "@/components/editemployment.vue";
+import editpopsu from "@/components/editpopsu.vue";
 export default {
   components: {
     editpersonal,
+    editeducation,
+    editemployment,
+    editpopsu,
     fromview
   },
   data: () => ({

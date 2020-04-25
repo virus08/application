@@ -3,7 +3,7 @@
     {
       "id": 1,
       "data": [
-        "ประฐม",
+        "ประถม",
         "ม.ปลาย",
         "ปวช.",
         "ปวส.",
@@ -125,6 +125,21 @@
       "text": "excel",
       "color": "green",
       "id": 3
+    },
+    {
+      "text": "Oracle Database",
+      "color": "purple",
+      "id": 4
+    },
+    {
+      "text": "MySQL",
+      "color": "indigo",
+      "id": 5
+    },
+    {
+      "text": "skill",
+      "color": "green",
+      "id": 6
     }
   ],
   "certificate": [
@@ -141,6 +156,21 @@
       "text": "excel",
       "color": "green",
       "id": 3
+    },
+    {
+      "text": "Oracle Database",
+      "color": "purple",
+      "id": 4
+    },
+    {
+      "text": "MySQL",
+      "color": "indigo",
+      "id": 5
+    },
+    {
+      "text": "skill",
+      "color": "orange",
+      "id": 6
     }
   ],
   "others": [
@@ -157,6 +187,21 @@
       "text": "excel",
       "color": "green",
       "id": 3
+    },
+    {
+      "text": "Oracle Database",
+      "color": "purple",
+      "id": 4
+    },
+    {
+      "text": "MySQL",
+      "color": "indigo",
+      "id": 5
+    },
+    {
+      "text": "skill",
+      "color": "green",
+      "id": 6
     }
   ],
   "hobbies": [
@@ -167,7 +212,7 @@
     {
       "id": 2,
       "text": "internet",
-      "color": "blue"
+      "color": "orange"
     },
     {
       "id": 3,
@@ -183,6 +228,11 @@
     {
       "id": 2,
       "text": "ปิงปอง",
+      "color": "purple"
+    },
+    {
+      "id": 2,
+      "text": "ฟุตบอล",
       "color": "blue"
     }
   ],
@@ -194,7 +244,7 @@
     {
       "id": 2,
       "text": "พิมพ์สัมผัส",
-      "color": "blue"
+      "color": "orange"
     },
     {
       "id": 3,
@@ -494,7 +544,8 @@
       "num_b": "444",
       "order_b": "4444",
       "num_s": "444",
-      "num_d": "444"
+      "num_d": "444",
+      "institute1": "โรงเรียน"
     },
     {
       "id": 49
@@ -928,7 +979,9 @@
       "office": "1"
     },
     {
-      "id": 55
+      "id": 55,
+      "institute1": "โรงเรียน",
+      "country1": "ไทย"
     },
     {
       "id": 56
@@ -1832,6 +1885,217 @@
     },
     {
       "id": 82
+    },
+    {
+      "id": 83,
+      "experience": "Iมีประสบการณ์การทำงาน(โปรดระบุ)",
+      "company_add1": "1",
+      "type_of_business1": "1",
+      "since1": "1",
+      "until1": "",
+      "total1": "",
+      "start1": "",
+      "s_last1": "",
+      "travelling_expenses1": "",
+      "mobile1": "",
+      "commission1": "",
+      "ot1": "",
+      "bonus1": "",
+      "position1": "",
+      "job_discription1": "",
+      "tel1": "",
+      "note1": "",
+      "company_add2": "",
+      "type_of_business2": "",
+      "since2": "",
+      "until2": "",
+      "total2": "",
+      "start2": "",
+      "s_last2": "",
+      "travelling_expenses2": "",
+      "mobile2": "",
+      "commission2": "",
+      "ot2": "",
+      "bonus2": "",
+      "position2": "",
+      "job_discription2": "",
+      "tel2": "",
+      "note2": "",
+      "company_add3": "",
+      "type_of_business3": "",
+      "since3": "",
+      "until3": "",
+      "total3": "",
+      "start3": "",
+      "s_last3": "",
+      "travelling_expenses3": "",
+      "mobile3": "",
+      "commission3": "",
+      "ot3": "",
+      "bonus3": "",
+      "position3": "",
+      "job_discription3": "",
+      "tel3": "",
+      "note3": "",
+      "company_add4": "",
+      "type_of_business4": "",
+      "since4": "",
+      "until4": "",
+      "total4": "",
+      "start4": "",
+      "s_last4": "",
+      "travelling_expenses4": "",
+      "mobile4": "",
+      "commission4": "",
+      "ot4": "",
+      "bonus4": "",
+      "position4": "",
+      "job_discription4": "",
+      "tel4": "",
+      "note4": "",
+      "institute1": "",
+      "course1": "",
+      "trainingyear1": "",
+      "traininghours1": "",
+      "institute2": "",
+      "course2": "",
+      "trainingyear2": "",
+      "traininghours2": "",
+      "institute3": "",
+      "course3": "",
+      "trainingyear3": "",
+      "traininghours3": "",
+      "name_surname": "1",
+      "relation1": "1",
+      "address": "1",
+      "telephone": "1",
+      "no1": "",
+      "yes1": "",
+      "explain1": "",
+      "no2": "",
+      "yes2": "",
+      "explain2": "",
+      "no3": "",
+      "yes3": "",
+      "explain3": "",
+      "no4": "",
+      "yes4": "",
+      "because": "",
+      "name": "1",
+      "department": "1",
+      "relation2": "",
+      "salary_Expectation": "",
+      "other_income_expected": "",
+      "applicant_s_signature": "1",
+      "mobile": "1",
+      "office": "1",
+      "position": "1",
+      "details1": "1",
+      "details2": "1",
+      "details3": "1",
+      "details4": "1",
+      "details5": "1",
+      "details6": "1",
+      "details7": "1",
+      "details8": "1",
+      "details9": "1",
+      "details10": "1",
+      "details11": "1",
+      "details12": "1",
+      "details13": "1",
+      "details14": "1",
+      "english_writing": "If I could turn back time",
+      "details15": "1"
+    },
+    {
+      "id": 84
+    },
+    {
+      "id": 85
+    },
+    {
+      "id": 86
+    },
+    {
+      "id": 87
+    },
+    {
+      "id": 88
+    },
+    {
+      "id": 89,
+      "institute1": "",
+      "country1": "จีน",
+      "yIn1": "",
+      "yout1": "",
+      "grade1": "",
+      "degree1": "",
+      "major1": "",
+      "name_dept1": "",
+      "institute2": "",
+      "country2": "",
+      "yIn2": "",
+      "yout2": "",
+      "grade2": "",
+      "degree2": "",
+      "major2": "",
+      "name_dept2": "",
+      "institute3": "",
+      "country3": "",
+      "yIn3": "",
+      "yout3": "",
+      "grade3": "",
+      "degree3": "",
+      "major3": "",
+      "name_dept3": "",
+      "institute4": "",
+      "country4": "",
+      "yIn4": "",
+      "yout4": "",
+      "grade4": "",
+      "degree4": "",
+      "major4": "",
+      "name_dept4": "",
+      "name_Level5": "",
+      "institute5": "",
+      "country5": "",
+      "yIn5": "",
+      "yout5": "",
+      "grade5": "",
+      "degree5": "",
+      "major5": "",
+      "name_dept5": "",
+      "name_level6": "",
+      "institute6": "",
+      "major6": "",
+      "name_dept6": "",
+      "yIn6": "",
+      "yout6": "",
+      "name_studying": "",
+      "name_car": "",
+      "name_motorcycle": "",
+      "name_have": "",
+      "name_understanding1": "",
+      "name_speaking1": "",
+      "name_reading1": "",
+      "name_writing1": "",
+      "name_language2": "",
+      "name_understanding2": "",
+      "name_speaking2": "",
+      "name_reading2": "",
+      "name_writing2": ""
+    },
+    {
+      "id": 90
+    },
+    {
+      "id": 91
+    },
+    {
+      "id": 92
+    },
+    {
+      "id": 93
     }
   ]
 }

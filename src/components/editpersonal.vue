@@ -406,6 +406,7 @@
               outlined
             ></v-text-field>
           </v-col>
+          <br />
           <v-subheader>
             ถนน
             <br />Street
@@ -804,10 +805,7 @@
           <v-col cols="2" md="3">
             <v-text-field v-model="datain.spouses_wp" label="สถานที่ทำงาน" hint dense outlined></v-text-field>
           </v-col>
-          <v-subheader>
-            โทรศัพท์
-            <br />Telephone
-          </v-subheader>
+        
           <v-col cols="2" md="3">
             <v-text-field v-model="datain.spouses_tel" label="+66 .." hint dense outlined></v-text-field>
           </v-col>
@@ -815,8 +813,8 @@
             จำนวนบุตร
             <br />Number of children
           </v-subheader>
-          <v-col cols="2" md="2">
-            <v-text-field v-model="datain.spouses_oder" label="ระบุุจำนวนบุตร" hint dense outlined></v-text-field>
+          <v-col cols="1" md="1">
+            <v-text-field v-model="datain.spouses_oder"  hint dense outlined></v-text-field>
           </v-col>
         </v-row>
         <v-chip
@@ -905,10 +903,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.father_oc"
@@ -963,10 +957,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.mather_oc"
@@ -1006,10 +996,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.bs_oc"
@@ -1054,10 +1040,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.bs2_oc"
@@ -1102,10 +1084,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.bs3_oc"
@@ -1150,10 +1128,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.bs4_oc"
@@ -1198,10 +1172,6 @@
               outlined
             ></v-text-field>
           </v-col>
-          <v-subheader>
-            ตำแหน่ง/อาชีพ
-            <br />Position
-          </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.bs5_oc"
@@ -1257,7 +1227,17 @@ export default {
       valid: false,
       rules: {},
       rules1: {
-       
+        positionnew: [v => !!v || "Item is required"],
+        stratingdate: [v => !!v || "Item is required"],
+        news: [v => !!v || "Item is required"],
+        nt: [v => !!v || "Item is required"],
+        namet: [
+          v => !!v || "Name is required",
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
+        ],
+        surnamet: [
+        ]
       }
       // datain:this.sdata,
     };
