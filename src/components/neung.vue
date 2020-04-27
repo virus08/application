@@ -1111,8 +1111,8 @@ export default {
       data3: null,
       data: null,
       valid: false,
-      rules:{},
-      rules1: {
+
+      rules: {
         positionnew: [v => !!v || "Item is required"],
         stratingdate: [v => !!v || "Item is required"],
         news: [v => !!v || "Item is required"],
