@@ -785,7 +785,7 @@
           <v-col cols="2" md="2">
             <v-text-field
               v-model="datain.num_s"
-              :rules="rules.num_s"
+              :rules=" rules.num_s"
               prepend-icon="mdi-gender-male"
               label="ชาย /son"
               required
@@ -1080,7 +1080,6 @@ import nameprefixeng from "@/components/nameprefixeng.vue";
 import bloodgroup from "@/components/nameprefixeng.vue";
 import PictureInput from "vue-picture-input";
 import citizen from "@/components/citizen.vue";
-
 // import
 export default {
   props: ["thisid"],
@@ -1090,9 +1089,7 @@ export default {
     nameprefixeng,
     bloodgroup,
     citizen,
-
   },
-
   data() {
     return {
       lists: [],
@@ -1111,7 +1108,6 @@ export default {
       data3: null,
       data: null,
       valid: false,
-
       rules: {
         positionnew: [v => !!v || "Item is required"],
         stratingdate: [v => !!v || "Item is required"],
@@ -1145,7 +1141,8 @@ export default {
         ],
         email: [
           v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => /.+@.+/.test(v) || 'E-mail must be valid' 
         ],
         tel: [
           v => !!v || "Item is required",
@@ -1299,11 +1296,9 @@ export default {
         marriage_certificate: "",
         marriage_not_registered: "",
         
-
       }
     };
   },
-
   methods: {
     async init() {
       let listurl = process.env.VUE_APP_LIST;

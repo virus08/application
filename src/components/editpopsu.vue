@@ -216,8 +216,8 @@
             name="input-8-5"
             v-model="datain.details15"
             :rules="rules.details15"
-            label="Details"
-            hint="Details"
+            label="Details*"
+            hint="Details*"
           ></v-textarea>
         </v-col>
       </v-form>

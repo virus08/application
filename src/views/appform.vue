@@ -143,7 +143,7 @@
               <input class="txt" type="text" style="width:1cm" :value="data.height" /> cm.
             </td>
             <td class="Type1">
-              <input class="txt" type="text" style="width:1cm" :value="data.weigth" /> kg.
+              <input class="txt" type="text" style="width:1cm" :value="data.weight" /> kg.
             </td>
           </tr>
         </table>
@@ -338,7 +338,7 @@
               <input class="txt" type="text" style="width:6.9cm" :value="data.mather_wp" />
             </td>
             <td class="Type1">
-              <input class="txt" type="text" style="width:2.5cm;" :value="data.mater_oc" />
+              <input class="txt" type="text" style="width:2.5cm;" :value="data.mather_oc" />
             </td>
           </tr>
           <tr>

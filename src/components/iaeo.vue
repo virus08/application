@@ -325,6 +325,7 @@
           <v-col cols="2">
             <v-text-field
               v-model="datain.name_Level5"
+              :items="lists[0].data"
               label="ระดับการศึกษา"
               hint="Level"
               dense

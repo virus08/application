@@ -1259,7 +1259,7 @@ export default {
       console.log("New picture selected!");
       if (image) {
         console.log("Picture loaded.");
-        this.datain.img = image;
+        this.data.img = image;
       } else {
         console.log("FileReader API not supported: use the <form>, Luke!");
       }

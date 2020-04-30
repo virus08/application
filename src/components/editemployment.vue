@@ -1341,8 +1341,10 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-checkbox v-model="datain.no1" label="ไม่เคย/NO" value="ไม่เคย/NO"></v-checkbox>
-          <v-checkbox v-model="datain.yes1" label="เคย/Yes" value="เคย/Yes"></v-checkbox>
+          <v-radio-group row>
+            <v-radio v-model="datain.no1" label="ไม่เคย/NO" dense outlined></v-radio>
+            <v-radio v-model="datain.yes1" label="เคย/Yes" dense outlined></v-radio>
+           </v-radio-group>
           <v-subheader>ระบุ/Explain</v-subheader>
           <v-text-field
             v-model="datain.explain1"
@@ -1362,8 +1364,10 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-checkbox v-model="datain.no2" label="ไม่เคย/NO" value="ไม่เคย/NO"></v-checkbox>
-          <v-checkbox v-model="datain.yes2" label="เคย/Yes" value="เคย/Yes"></v-checkbox>
+          <v-radio-group row>
+            <v-radio v-model="datain.no2" label="ไม่เคย/NO" dense outlined></v-radio>
+            <v-radio v-model="datain.yes2" label="เคย/Yes" dense outlined></v-radio>
+           </v-radio-group>
           <v-subheader>ระบุ/Explain</v-subheader>
           <v-text-field
             v-model="datain.explain2"
@@ -1383,8 +1387,10 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-checkbox v-model="datain.no3" label="ไม่เคย/NO" value="ไม่เคย/NO"></v-checkbox>
-          <v-checkbox v-model="datain.yes3" label="เคย/Yes" value="เคย/Yes"></v-checkbox>
+          <v-radio-group row>
+            <v-radio v-model="datain.no3" label="ไม่เคย/NO" dense outlined></v-radio>
+            <v-radio v-model="datain.yes3" label="เคย/Yes" dense outlined></v-radio>
+           </v-radio-group>
           <v-subheader>ระบุ/Explain</v-subheader>
           <v-text-field
             v-model="datain.explain3"
@@ -1404,8 +1410,10 @@
               </p>
             </v-subheader>
           </v-col>
-          <v-checkbox v-model="datain.no4" label="ไม่ได้/NO" value="ไม่ได้/NO"></v-checkbox>
-          <v-checkbox v-model="datain.yes4" label="ได้/Yes" value="ได้/Yes"></v-checkbox>
+          <v-radio-group row>
+            <v-radio v-model="datain.no4" label="ไม่ได้/NO" dense outlined></v-radio>
+            <v-radio v-model="datain.yes4" label="ได้/Yes" dense outlined></v-radio>
+           </v-radio-group>
           <v-subheader>เพราะ/ Because</v-subheader>
           <v-text-field
             v-model="datain.because"
@@ -1505,7 +1513,7 @@
           <v-text-field
             v-model="datain.applicant_s_signature"
             :rules="rules.applicant_s_signature"
-            label="ลงชื่อผู้สมัคร/Applicant's signature "
+            label="ลงชื่อผู้สมัคร/Applicant's signature * "
             placeholder="Details"
             dense
             outlined

@@ -108,7 +108,6 @@
       search: null,
       y: 0,
     }),
-
     watch: {
       model (val, prev) {
         if (val.length === prev.length) return
