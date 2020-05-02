@@ -15,73 +15,24 @@ export default {
       data: {},
 
       formshot_rules: {
-        positionnew: [v => !!v || "Item is required"],
-        stratingdate: [v => !!v || "Item is required"],
-        news: [v => !!v || "Item is required"],
-        titlename: [v => !!v || "Item is required"],
+        req: [v => !!v || "Item is required"],
         name: [
-          v => !!v || "Name is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters",
+          v => !!v || "Item is required",
+          v => (v && v.length >= 2) || "Must be more than 2 characters",
           v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
         ],
-        surname: [
-          v => !!v || "Name is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters",
-          v => (v || "").indexOf(" ") < 0 || "No spaces are allowed"
-        ],
-        nickt: [v => !!v || "Item is required"],
         email: [
           v => !!v || "Item is required",
-          v => /.+@.+/.test(v) || "E-mail must be valid"
+          v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || "E-mail must be valid"
         ],
-        tel: [
+      reqm2: [
           v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
+          v => (v && v.length >= 2) || "Must be more than 2 characters"
         ],
-        date4: [
+        reqeq5: [
           v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        height: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        weight: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        pr_add: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        pr_district: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        pr_aumphur: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        pr_proince: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        pr_country: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],
-        pr_postaicode: [
-          v => !!v || "Item is required",
-          v => (v && v.length >= 2) || "Name must be more than 5 characters"
-        ],// Edu valadate
-        name_Level1: [v => !!v || "Item is required"],
-        institute1: [v => !!v || "Item is required"],
-        name_subject1: [v => !!v || "Item is required"],
-        name_graduation1: [v => !!v || "Item is required"],
-        name_understanding1: [v => !!v || "Item is required"],
-        name_speaking1: [v => !!v || "Item is required"],
-        name_reading1: [v => !!v || "Item is required"],
-        name_writing1: [v => !!v || "Item is required"]
+          v => (v && v.length == 5) || "Must be 5 Digit"
+        ]
       }
     };
   }

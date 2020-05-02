@@ -2,9 +2,11 @@
   <v-card>
     <v-container fluid>
       <v-form ref="form" v-model="valid">
+        <v-row> 
         <v-chip
           class="ma-2"
         >การทำงาน (ระบุประสบการณืในการทำงานโดยเริ่มจากที่ล่าสุดก่อน) / Employment record (List from present to last)</v-chip>
+        </v-row>
         <v-radio-group>
           <v-col>
             <v-row>
