@@ -59,7 +59,7 @@ export default {
       let yy = moment().diff(this.Brith_Date, 'years',false); 
       let mo = moment().diff(this.Brith_Date, 'months',false); 
       let xx = mo-yy*12 
-      return yy + ' ปี' + xx + ' เดือน' ;
+      return yy + '(' + xx + '/12)' ;
     }
   }
 };

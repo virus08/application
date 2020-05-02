@@ -7,24 +7,24 @@
             <v-row>
               <v-col cols="12" sm="6" md="4">
                 <v-menu
-        v-model="menu2"
-        :close-on-content-click="false"
-        :nudge-right="40"
-        transition="scale-transition"
-        offset-y
-        min-width="290px"
-      >
-        <template v-slot:activator="{ on }">
-          <v-text-field
-            v-model="datain.date"
-            label="วันที่สมัคร /Application Date"
-            prepend-icon="mdi-calendar"
-            readonly
-            v-on="on"
-          ></v-text-field>
-        </template>
-        <v-date-picker v-model="datain.date" @input="menu2 = false"></v-date-picker>
-      </v-menu>
+                  v-model="menu2"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="datain.date"
+                      label="วันที่สมัคร /Application Date"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker v-model="datain.date" @input="menu2 = false"></v-date-picker>
+                </v-menu>
               </v-col>
               <v-col cols="12" sm="6" md="4">
                 <v-text-field
@@ -38,7 +38,7 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                 <v-menu
+                <v-menu
                   ref="menu"
                   v-model="menu3"
                   :close-on-content-click="false"
@@ -93,14 +93,14 @@
         </v-row>
         <v-row align="center">
           <v-col cols="2" md="2">
-             <v-text-field
-                v-model="datain.nt"
+            <v-text-field
+              v-model="datain.nt"
               :rules="rules.nt"
-                label="คำนำหน้าชื่อ (TH)"
-                hint="SELECT your name prefix "
-                dense
+              label="คำนำหน้าชื่อ (TH)"
+              hint="SELECT your name prefix "
+              dense
               outlined
-              />
+            />
           </v-col>
           <v-row>
             <v-col cols="5" md="3">
@@ -137,15 +137,14 @@
         </v-row>
         <v-row>
           <v-col cols="2" md="2">
-
-              <v-text-field
-                v-model="datain.ne"
+            <v-text-field
+              v-model="datain.ne"
               :rules="rules.ne"
-                label="คำนำหน้าชื่อ (EN)"
-                hint="SELECT your name prefix "
-                dense
+              label="คำนำหน้าชื่อ (EN)"
+              hint="SELECT your name prefix "
+              dense
               outlined
-              />
+            />
           </v-col>
           <v-col cols="5" md="3">
             <v-text-field
@@ -278,14 +277,14 @@
                 </v-subheader>
               </v-col>
               <v-col cols="7">
-               <v-text-field
-              v-model="datain.nationality"
-              :rules="rules.nationality"
-              label="สัญชาติ"
-              hint="Nationality"
-              dense
-              outlined
-            ></v-text-field>
+                <v-text-field
+                  v-model="datain.nationality"
+                  :rules="rules.nationality"
+                  label="สัญชาติ"
+                  hint="Nationality"
+                  dense
+                  outlined
+                ></v-text-field>
               </v-col>
             </v-row>
           </v-col>
@@ -305,7 +304,7 @@
               outlined
             ></v-text-field>
           </v-col>
-           <v-subheader>
+          <v-subheader>
             สถานที่เกิด
             <br />Place of brith*
           </v-subheader>
@@ -506,7 +505,14 @@
             <br />โทรศัพท์บ้าน**
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field prepend-inner-icon="mdi-phone-classic" v-model="datain.tel" :rules="rules.tel" label="02 .." dense outlined></v-text-field>
+            <v-text-field
+              prepend-inner-icon="mdi-phone-classic"
+              v-model="datain.tel"
+              :rules="rules.tel"
+              label="02 .."
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             Mobile
@@ -514,7 +520,7 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-            prepend-inner-icon="mdi-cellphone-iphone"
+              prepend-inner-icon="mdi-cellphone-iphone"
               v-model="datain.mobile"
               :rules="rules.mobile"
               label="+(66).."
@@ -528,7 +534,7 @@
           </v-subheader>
           <v-col cols="2" md="2">
             <v-text-field
-            prepend-inner-icon="mdi-email-outline"
+              prepend-inner-icon="mdi-email-outline"
               v-model="datain.email"
               :rules="rules.email"
               label="example@gmail.com"
@@ -541,14 +547,21 @@
             <br />
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field prepend-inner-icon="mdi-facebook" v-model="datain.facebook" :rules="rules.facebook" label dense outlined></v-text-field>
+            <v-text-field
+              prepend-inner-icon="mdi-facebook"
+              v-model="datain.facebook"
+              :rules="rules.facebook"
+              label
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ID Line**
             <br />
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field  v-model="datain.line" :rules="rules.line" label dense outlined></v-text-field>
+            <v-text-field v-model="datain.line" :rules="rules.line" label dense outlined></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -700,11 +713,31 @@
           <v-chip class="ma-2">สถานภาพทางทหาร/ Military status</v-chip>
           <br />
           <br />
-          <v-radio-group v-model="datain.n_service"  row>
-            <v-radio v-model="datain.not_service" label="ยังไม่ผ่านการเกณฑ์ทหาร /No Dischrged" dense outlined></v-radio>
-            <v-radio v-model="datain.dm_service" label="ผ่านการศึกษาวิชาทหาร /Military Studied" dense outlined></v-radio>
-            <v-radio v-model="datain.past_service" label="ผ่านการเกณฑ์ทหาร /Dischrged" dense outlined></v-radio>
-            <v-radio v-model="datain.except_service" label="ได้รับการยกเว้น /Exempted" dense outlined></v-radio>
+          <v-radio-group v-model="datain.n_service" row>
+            <v-radio
+              v-model="datain.not_service"
+              label="ยังไม่ผ่านการเกณฑ์ทหาร /No Dischrged"
+              dense
+              outlined
+            ></v-radio>
+            <v-radio
+              v-model="datain.dm_service"
+              label="ผ่านการศึกษาวิชาทหาร /Military Studied"
+              dense
+              outlined
+            ></v-radio>
+            <v-radio
+              v-model="datain.past_service"
+              label="ผ่านการเกณฑ์ทหาร /Dischrged"
+              dense
+              outlined
+            ></v-radio>
+            <v-radio
+              v-model="datain.except_service"
+              label="ได้รับการยกเว้น /Exempted"
+              dense
+              outlined
+            ></v-radio>
           </v-radio-group>
         </v-row>
         <v-row>
@@ -713,8 +746,18 @@
             <v-radio v-model="datain.single" label="โสด/ Single" dense outlined></v-radio>
             <v-radio v-model="datain.divorce" label="หย้า/ Divorced" dense outlined></v-radio>
             <v-radio v-model="datain.widow" label="หม้าย/ Widowed" dense outlined></v-radio>
-            <v-radio v-model="datain.marriage_certificate" label="สมรสจดทะเบียน/ Civil marriage" dense outlined></v-radio>
-            <v-radio v-model="datain.marriage_not_registered" label="สมรสไม่จดทะเบียน/ Common-law marriage" dense outlined></v-radio>
+            <v-radio
+              v-model="datain.marriage_certificate"
+              label="สมรสจดทะเบียน/ Civil marriage"
+              dense
+              outlined
+            ></v-radio>
+            <v-radio
+              v-model="datain.marriage_not_registered"
+              label="สมรสไม่จดทะเบียน/ Common-law marriage"
+              dense
+              outlined
+            ></v-radio>
           </v-radio-group>
         </v-row>
         <v-chip class="ma-2">ข้อมูลของคู่สมรสและบุตร / Family information</v-chip>
@@ -723,16 +766,34 @@
             <v-select v-model="datain.spouses" :items="['นาย','นาง']" label="คำนำหน้า" dense solo></v-select>
           </v-col>
           <v-col cols="7" md="3">
-            <v-text-field v-model="datain.spouses_n" label="ชื่อ / (TH)" hint="ระบุเป็นภาษาไทย" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.spouses_n"
+              label="ชื่อ / (TH)"
+              hint="ระบุเป็นภาษาไทย"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-col cols="5" md="3">
-            <v-text-field v-model="datain.spouses_sur" label="นามสกุล / (TH)" hint="ระบุเป็นภาษาไทย" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.spouses_sur"
+              label="นามสกุล / (TH)"
+              hint="ระบุเป็นภาษาไทย"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-col cols="1" md="1">
             <v-text-field v-model="datain.spouses_age" label="อายุ" hint="Age" dense outlined></v-text-field>
           </v-col>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.spouses_oc" label="อาชีพ/ตำแหน่ง" hint="Occupation / Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.spouses_oc"
+              label="อาชีพ/ตำแหน่ง"
+              hint="Occupation / Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -750,7 +811,7 @@
           <v-col cols="2" md="3">
             <v-text-field v-model="datain.spouses_tel" label="+66 .." hint dense outlined></v-text-field>
           </v-col>
-           <v-subheader>
+          <v-subheader>
             จำนวนบุตร
             <br />Number of children
           </v-subheader>
@@ -937,14 +998,26 @@
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs_wp" label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs_oc" label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -960,21 +1033,39 @@
             <br />Age
           </v-subheader>
           <v-col cols="1" md="1">
-            <v-text-field v-model="datain.bs2_age" label="อายุ" hint="ระบุเป็นตัวเลข" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs2_age"
+              label="อายุ"
+              hint="ระบุเป็นตัวเลข"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             สถานที่ทำงาน/โทรศัพท์
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs2_wp" label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs2_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs2_oc" label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs2_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -990,21 +1081,39 @@
             <br />Age
           </v-subheader>
           <v-col cols="1" md="1">
-            <v-text-field v-model="datain.bs3_age" label="อายุ" hint="ระบุเป็นตัวเลข" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs3_age"
+              label="อายุ"
+              hint="ระบุเป็นตัวเลข"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             สถานที่ทำงาน/โทรศัพท์
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs3_wp" label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs3_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs3_oc" label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs3_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -1020,21 +1129,39 @@
             <br />Age
           </v-subheader>
           <v-col cols="1" md="1">
-            <v-text-field v-model="datain.bs4_age" label="อายุ" hint="ระบุเป็นตัวเลข" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs4_age"
+              label="อายุ"
+              hint="ระบุเป็นตัวเลข"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             สถานที่ทำงาน/โทรศัพท์
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs4_wp" label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs4_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs4_oc" label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs4_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -1050,21 +1177,39 @@
             <br />Age
           </v-subheader>
           <v-col cols="1" md="1">
-            <v-text-field v-model="datain.bs5_age" label="อายุ" hint="ระบุเป็นตัวเลข" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs5_age"
+              label="อายุ"
+              hint="ระบุเป็นตัวเลข"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             สถานที่ทำงาน/โทรศัพท์
             <br />Company/Telephone
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs5_wp" label="สถานที่ทำงาน/โทรศัพท์" hint="Company/Telephone" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs5_wp"
+              label="สถานที่ทำงาน/โทรศัพท์"
+              hint="Company/Telephone"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
           <v-subheader>
             ตำแหน่ง/อาชีพ
             <br />Position
           </v-subheader>
           <v-col cols="2" md="2">
-            <v-text-field v-model="datain.bs5_oc" label="ตำแหน่ง/อาชีพ" hint="Position" dense outlined></v-text-field>
+            <v-text-field
+              v-model="datain.bs5_oc"
+              label="ตำแหน่ง/อาชีพ"
+              hint="Position"
+              dense
+              outlined
+            ></v-text-field>
           </v-col>
         </v-row>
       </v-form>
@@ -1088,7 +1233,7 @@ export default {
     nameprefix,
     nameprefixeng,
     bloodgroup,
-    citizen,
+    citizen
   },
   data() {
     return {
@@ -1142,7 +1287,7 @@ export default {
         email: [
           v => !!v || "Item is required",
           v => (v && v.length >= 2) || "Name must be more than 5 characters",
-          v => /.+@.+/.test(v) || 'E-mail must be valid' 
+          v => /.+@.+/.test(v) || "E-mail must be valid"
         ],
         tel: [
           v => !!v || "Item is required",
@@ -1184,7 +1329,7 @@ export default {
           v => !!v || "Item is required",
           v => (v && v.length >= 2) || "Name must be more than 5 characters"
         ],
-         pr_addhh: [
+        pr_addhh: [
           v => !!v || "Item is required",
           v => (v && v.length >= 2) || "Name must be more than 5 characters"
         ],
@@ -1225,7 +1370,7 @@ export default {
         date3: new Date().toISOString().substr(0, 10),
         date4: new Date().toISOString().substr(0, 10),
         date: new Date().toISOString().substr(0, 10),
-        data4:"",
+        data4: "",
         img: null,
         pofb: "",
         date: "",
@@ -1294,8 +1439,7 @@ export default {
         divorce: "",
         widow: "",
         marriage_certificate: "",
-        marriage_not_registered: "",
-        
+        marriage_not_registered: ""
       }
     };
   },

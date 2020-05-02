@@ -2,15 +2,17 @@
   <v-card>
     <v-container fluid>
       <v-form ref="form" v-model="valid">
-        <v-col cols="3">
-          <v-text-field
-            v-model="datain.institute1"
-            :rules="rules.institute1"
-            label="ประกาศนียบัตร"
-            prepend-inner-icon="mdi-certificate"
-            hint="Certificate"
-          ></v-text-field>
-        </v-col>
+        <v-row>
+          <v-col cols="3">
+            <v-text-field
+              v-model="datain.institute1"
+              :rules="rules.institute1"
+              label="ประกาศนียบัตร"
+              prepend-inner-icon="mdi-certificate"
+              hint="Certificate"
+            ></v-text-field>
+          </v-col>
+        </v-row>
         <v-row>
           <v-chip class="ma-5">**ระดับการศึกษา/ Education level**</v-chip>
 
@@ -169,7 +171,6 @@
             <v-autocomplete
               v-model="datain.name_speaking2"
               :items="lists[1].data"
-              
               label="พูด"
               prepend-inner-icon="mdi-comment-processing"
               hint="Speaking"
