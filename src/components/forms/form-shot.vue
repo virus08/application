@@ -59,7 +59,7 @@
                 />
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field v-model="data.reqm2" label="ID Line" required />
+                <v-text-field v-model="data.lineid" label="ID Line" required />
               </v-col>
             </v-row>
           </v-col>
@@ -95,14 +95,14 @@
                 <v-dialog
                   ref="dialog"
                   v-model="Brith_Date_Model"
-                  :return-value.sync="thisdate"
+                  :return-value.sync="data.BrithDate"
                   persistent
                   width="290px"
                 >
                   <template v-slot:activator="{ on }">
-                    <v-text-field :rules="rules.req" v-model="tbd_format" label="วัน/เดือน/ปี*" readonly v-on="on"></v-text-field>
+                    <v-text-field v-model="tbd_format" label="วัน/เดือน/ปี*" readonly v-on="on"></v-text-field>
                   </template>
-                  <v-date-picker v-model="data.BrithDate" scrollable>
+                  <v-date-picker rules="rules.req"  v-model="data.BrithDate" scrollable>
                     <v-spacer></v-spacer>
                     <v-btn text color="primary" @click="Brith_Date_Model = false">Cancel</v-btn>
                     <v-btn text color="primary" @click="$refs.dialog.save(data.BrithDate)">OK</v-btn>
@@ -714,8 +714,8 @@
 </template>
 <script>
 import PictureInput from "vue-picture-input";
+import JSEncrypt from 'jsencrypt/bin/jsencrypt'
 var moment = require("moment");
-//for edu
 
 export default {
   props: ["data", "rules"],
@@ -756,14 +756,24 @@ export default {
     validate(){
       this.$refs.form.validate();
     },
-    save(){
-      console.log(this.data)
+    async save(){
+      let dataurl = process.env.VUE_APP_DATA;
+      let res = await axios({
+        method: "post",
+        url: dataurl,
+        data:this.data
+      });
+      console.log(res.data.id)
+      if(res.data.id){
+        this.$refs.form.reset();
+        alert('ได้รับข้อมูลแล้วจะติดต่อกลับ')
+      };
     },
     onChange(image) {
       if (image) {
         this.data.img = image;
       }
-    }
+    } 
   },
   computed: {
     tdate3_format : function(){
